@@ -115,24 +115,35 @@ if (rotatingBg) {
     }
 
     const startIndex = Math.floor(Math.random() * images.length);
-    let currentIndex = startIndex;
+    let currentSrc = images[startIndex];
     let activeLayer = currentLayer;
     let idleLayer = nextLayer;
+    const loadedImages = new Set([currentSrc]);
 
     const setBackground = (layer, src) => {
       layer.style.backgroundImage = `url('${src}')`;
     };
 
-    setBackground(activeLayer, images[startIndex]);
+    setBackground(activeLayer, currentSrc);
     activeLayer.classList.add('is-visible');
+
+    const preloadImage = (src) =>
+      new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          loadedImages.add(src);
+          resolve(true);
+        };
+        img.onerror = () => resolve(false);
+        img.src = src;
+      });
 
     const preloadImages = () => {
       images.forEach((src, index) => {
         if (index === startIndex) {
           return;
         }
-        const img = new Image();
-        img.src = src;
+        preloadImage(src);
       });
     };
 
@@ -142,17 +153,24 @@ if (rotatingBg) {
       setTimeout(preloadImages, 1500);
     }
 
+    const getLoadedList = () => images.filter((src) => loadedImages.has(src));
+
     if (!prefersReducedMotion && images.length > 1) {
       setInterval(() => {
-        const nextIndex = (currentIndex + 1) % images.length;
-        setBackground(idleLayer, images[nextIndex]);
+        const available = getLoadedList();
+        if (available.length < 2) {
+          return;
+        }
+        const currentPos = Math.max(0, available.indexOf(currentSrc));
+        const nextSrc = available[(currentPos + 1) % available.length];
+        setBackground(idleLayer, nextSrc);
         idleLayer.classList.add('is-visible');
         activeLayer.classList.remove('is-visible');
 
         const previousLayer = activeLayer;
         activeLayer = idleLayer;
         idleLayer = previousLayer;
-        currentIndex = nextIndex;
+        currentSrc = nextSrc;
       }, interval);
     }
   };
