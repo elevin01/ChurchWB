@@ -20,6 +20,8 @@ const isHomeScreen = document.body.classList.contains('home-screen');
 if (isHomeScreen) {
   let isNavigating = false;
   let touchStartY = 0;
+  let wheelAccum = 0;
+  let wheelTimer;
 
   const canNavigate = () => !isNavigating && !(siteNav && siteNav.classList.contains('open'));
 
@@ -34,13 +36,32 @@ if (isHomeScreen) {
   window.addEventListener(
     'wheel',
     (event) => {
-      if (event.deltaY > 25) {
-        event.preventDefault();
+      if (event.deltaY <= 0) {
+        return;
+      }
+      event.preventDefault();
+      wheelAccum += event.deltaY;
+      if (wheelAccum > 40) {
+        wheelAccum = 0;
         goToAbout();
       }
+      clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(() => {
+        wheelAccum = 0;
+      }, 200);
     },
     { passive: false }
   );
+
+  window.addEventListener('keydown', (event) => {
+    if (!canNavigate()) {
+      return;
+    }
+    if (event.key === 'ArrowDown' || event.key === 'PageDown' || event.key === ' ') {
+      event.preventDefault();
+      goToAbout();
+    }
+  });
 
   window.addEventListener(
     'touchstart',
