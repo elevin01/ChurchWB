@@ -538,6 +538,14 @@ body.page-immersive {
   overflow: hidden;
 }
 
+.home-bg,
+.page-bg {
+  background-color: #2b2520;
+  background-image: url("images/IMG_8281.png");
+  background-size: cover;
+  background-position: center;
+}
+
 .page-bg::after {
   content: "";
   position: absolute;

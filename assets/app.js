@@ -76,6 +76,7 @@ if (rotatingBg) {
     .map((src) => src.trim())
     .filter(Boolean);
   const manifestUrl = rotatingBg.dataset.manifest;
+  const fallbackSrc = rotatingBg.dataset.fallback;
   const currentLayer = rotatingBg.querySelector('.bg-layer--current');
   const nextLayer = rotatingBg.querySelector('.bg-layer--next');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -114,18 +115,14 @@ if (rotatingBg) {
       return;
     }
 
-    const startIndex = Math.floor(Math.random() * images.length);
-    let currentSrc = images[startIndex];
+    let currentSrc = fallbackSrc || '';
     let activeLayer = currentLayer;
     let idleLayer = nextLayer;
-    const loadedImages = new Set([currentSrc]);
+    const loadedImages = new Set();
 
     const setBackground = (layer, src) => {
       layer.style.backgroundImage = `url('${src}')`;
     };
-
-    setBackground(activeLayer, currentSrc);
-    activeLayer.classList.add('is-visible');
 
     const preloadImage = (src) =>
       new Promise((resolve) => {
@@ -137,6 +134,21 @@ if (rotatingBg) {
         img.onerror = () => resolve(false);
         img.src = src;
       });
+
+    if (currentSrc) {
+      setBackground(activeLayer, currentSrc);
+      activeLayer.classList.add('is-visible');
+    }
+
+    const startIndex = Math.floor(Math.random() * images.length);
+    const firstSrc = images[startIndex];
+    const firstLoaded = await preloadImage(firstSrc);
+
+    if (firstLoaded) {
+      setBackground(activeLayer, firstSrc);
+      activeLayer.classList.add('is-visible');
+      currentSrc = firstSrc;
+    }
 
     const preloadImages = () => {
       images.forEach((src, index) => {
