@@ -1567,6 +1567,12 @@ body.page-immersive {
     font-size: 0.75rem;
   }
 
+  .footer-verse {
+    justify-content: flex-start;
+    padding-top: clamp(3rem, 12vh, 5.5rem);
+    transform: none;
+  }
+
   .footer-social a {
     width: 40px;
     height: 40px;

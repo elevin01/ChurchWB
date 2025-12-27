@@ -240,7 +240,10 @@ if (siteFooter) {
   const footerObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && window.scrollY > 120) {
+        const isSmallScreen = window.matchMedia('(max-width: 720px)').matches;
+        const nearBottom =
+          window.innerHeight + window.scrollY >= document.body.offsetHeight - 120;
+        if (entry.isIntersecting && !isSmallScreen && nearBottom && window.scrollY > 120) {
           document.body.classList.add('footer-focus');
         } else {
           document.body.classList.remove('footer-focus');
