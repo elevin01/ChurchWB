@@ -13,8 +13,18 @@
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/app.js" defer></script>
   </head>
-  <body>
+  <body class="page-immersive page-involved">
     <a class="skip-link" href="#content">Skip to content</a>
+    <div
+      class="page-bg"
+      data-rotating-bg
+      data-images="images/IMG_8281.png,images/outreach.svg,images/youth.svg,images/gathering.svg,images/neighborhood.svg"
+      data-manifest="assets/image-manifest.json"
+      aria-hidden="true"
+    >
+      <div class="bg-layer bg-layer--current"></div>
+      <div class="bg-layer bg-layer--next"></div>
+    </div>
     <header class="site-header">
       <div class="header-inner">
         <a class="logo" href="index.html">Bronx Community Church</a>
@@ -29,113 +39,94 @@
       </div>
     </header>
 
-    <main id="content">
-      <section class="section">
-        <div class="container hero">
-          <div class="hero-text reveal" data-reveal>
-            <p class="eyebrow">Get involved</p>
-            <h1>Join the work that keeps us present.</h1>
-            <p>
-              There is room for every kind of helper. Whether you can serve weekly or once in a while,
-              we will walk with you and help you find your place.
-            </p>
-            <div class="hero-actions">
-              <a class="btn primary" href="#interest-form">I am interested</a>
-            </div>
-          </div>
-          <div class="hero-media reveal" data-reveal>
-            <img src="images/outreach.svg" alt="Placeholder photo of volunteers serving" />
+    <main id="content" class="page-main">
+      <section class="page-hero">
+        <div class="container page-hero__content">
+          <p class="eyebrow">Get involved</p>
+          <h1>Join the work that keeps us present.</h1>
+          <p>
+            There is room for every kind of helper. Whether you can serve weekly or once in a while, we
+            will walk with you and help you find your place.
+          </p>
+          <div class="hero-actions">
+            <a class="btn light" href="#board">Find your place →</a>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="board">
         <div class="container">
-          <div class="section-title reveal" data-reveal>
-            <p class="eyebrow">Clear paths</p>
-            <h2>Choose a way to serve that fits your life.</h2>
-          </div>
-          <div class="cards">
-            <article class="card reveal" data-reveal>
-              <img src="images/outreach.svg" alt="Placeholder photo of food outreach" />
-              <div class="card-body">
+          <div class="board board--full reveal" data-reveal>
+            <div class="board-heading">
+              <h2>Volunteer board</h2>
+              <p>Pick a note, grab a role, and we will follow up with care.</p>
+            </div>
+            <div class="board-grid board-grid--large">
+              <article class="note note--yellow note--large">
                 <h3>Serve with us</h3>
                 <p><strong>Who it is for:</strong> People who enjoy hands-on care.</p>
                 <p><strong>Time:</strong> 2 to 4 hours weekly or biweekly.</p>
-                <a href="#interest-form">I am interested</a>
-              </div>
-            </article>
-            <article class="card reveal" data-reveal>
-              <img src="images/gathering.svg" alt="Placeholder photo of small gathering" />
-              <div class="card-body">
+                <a href="#interest-form">I am interested →</a>
+              </article>
+              <article class="note note--green note--large">
                 <h3>Join a gathering</h3>
                 <p><strong>Who it is for:</strong> People looking for prayer and community.</p>
                 <p><strong>Time:</strong> 90 minutes each week.</p>
-                <a href="#interest-form">I am interested</a>
-              </div>
-            </article>
-            <article class="card reveal" data-reveal>
-              <img src="images/neighborhood.svg" alt="Placeholder photo of neighborhood outreach" />
-              <div class="card-body">
+                <a href="#interest-form">I am interested →</a>
+              </article>
+              <article class="note note--blue note--large">
                 <h3>Partner with outreach</h3>
                 <p><strong>Who it is for:</strong> Local leaders and community groups.</p>
                 <p><strong>Time:</strong> Monthly planning and outreach days.</p>
-                <a href="#interest-form">I am interested</a>
-              </div>
-            </article>
-            <article class="card reveal" data-reveal>
-              <img src="images/youth.svg" alt="Placeholder photo of youth support" />
-              <div class="card-body">
+                <a href="#interest-form">I am interested →</a>
+              </article>
+              <article class="note note--white note--large">
                 <h3>Volunteer occasionally</h3>
                 <p><strong>Who it is for:</strong> People with limited time.</p>
                 <p><strong>Time:</strong> One-time needs and seasonal events.</p>
-                <a href="#interest-form">I am interested</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="interest-form">
-        <div class="container two-col">
-          <div class="reveal" data-reveal>
-            <p class="eyebrow">I am interested</p>
-            <h2>Tell us how you want to help.</h2>
-            <p>
-              This short form helps us follow up with care. We respond within 48 hours.
-            </p>
-          </div>
-          <form class="reveal" data-reveal>
-            <div class="form-grid">
-              <label>
-                Name
-                <input type="text" name="name" placeholder="Your name" required />
-              </label>
-              <label>
-                Email
-                <input type="email" name="email" placeholder="you@example.com" required />
-              </label>
-              <label>
-                Phone
-                <input type="tel" name="phone" placeholder="(718) 555-1234" />
-              </label>
-              <label>
-                I am interested in
-                <select name="interest" required>
-                  <option value="">Select one</option>
-                  <option>Serving with meals</option>
-                  <option>Prayer and gatherings</option>
-                  <option>Neighborhood outreach</option>
-                  <option>Youth and family support</option>
-                </select>
-              </label>
+                <a href="#interest-form">I am interested →</a>
+              </article>
+              <article class="note note--white note--wide" id="interest-form">
+                <h3>Sign-up sheet</h3>
+                <p>Tell us how you want to help. We respond within 48 hours.</p>
+                <form>
+                  <div class="form-grid">
+                    <label>
+                      Name
+                      <input type="text" name="name" placeholder="Your name" required />
+                    </label>
+                    <label>
+                      Email
+                      <input type="email" name="email" placeholder="you@example.com" required />
+                    </label>
+                    <label>
+                      Phone
+                      <input type="tel" name="phone" placeholder="(718) 555-1234" />
+                    </label>
+                    <label>
+                      I am interested in
+                      <select name="interest" required>
+                        <option value="">Select one</option>
+                        <option>Serving with meals</option>
+                        <option>Prayer and gatherings</option>
+                        <option>Neighborhood outreach</option>
+                        <option>Youth and family support</option>
+                      </select>
+                    </label>
+                  </div>
+                  <label>
+                    Availability
+                    <textarea name="availability" placeholder="Tell us what days or times work for you."></textarea>
+                  </label>
+                  <button class="btn primary" type="submit">Send interest</button>
+                </form>
+              </article>
+              <article class="note note--yellow">
+                <h3>What happens next?</h3>
+                <p>We will call or text to listen first, then match you with a team.</p>
+              </article>
             </div>
-            <label>
-              Availability
-              <textarea name="availability" placeholder="Tell us what days or times work for you."></textarea>
-            </label>
-            <button class="btn primary" type="submit">Send interest</button>
-          </form>
+          </div>
         </div>
       </section>
     </main>

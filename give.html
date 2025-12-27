@@ -13,8 +13,18 @@
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/app.js" defer></script>
   </head>
-  <body>
+  <body class="page-immersive page-give">
     <a class="skip-link" href="#content">Skip to content</a>
+    <div
+      class="page-bg"
+      data-rotating-bg
+      data-images="images/IMG_8281.png,images/give.svg,images/outreach.svg,images/neighborhood.svg,images/hero.svg"
+      data-manifest="assets/image-manifest.json"
+      aria-hidden="true"
+    >
+      <div class="bg-layer bg-layer--current"></div>
+      <div class="bg-layer bg-layer--next"></div>
+    </div>
     <header class="site-header">
       <div class="header-inner">
         <a class="logo" href="index.html">Bronx Community Church</a>
@@ -29,84 +39,78 @@
       </div>
     </header>
 
-    <main id="content">
-      <section class="section">
-        <div class="container hero">
-          <div class="hero-text reveal" data-reveal>
-            <p class="eyebrow">Give</p>
-            <h1>Giving is participation, not obligation.</h1>
-            <p>
-              Your generosity helps us stay present in the Bronx. Every gift makes room for meals,
-              outreach, and a safe place to gather.
-            </p>
-            <div class="hero-actions">
-              <a class="btn primary" href="#give-options">Give online</a>
-              <a class="btn secondary" href="get-involved.html">Give time instead</a>
-            </div>
-          </div>
-          <div class="hero-media reveal" data-reveal>
-            <img src="images/give.svg" alt="Placeholder photo of giving in action" />
+    <main id="content" class="page-main">
+      <section class="page-hero">
+        <div class="container page-hero__content">
+          <p class="eyebrow">Give</p>
+          <h1>Giving is participation, not obligation.</h1>
+          <p>
+            Your generosity helps us stay present in the Bronx. Every gift makes room for meals,
+            outreach, and a safe place to gather.
+          </p>
+          <div class="hero-actions">
+            <a class="btn light" href="#give-options">Give online →</a>
+            <a class="btn ghost" href="get-involved.html">Give time instead</a>
           </div>
         </div>
       </section>
 
       <section class="section">
-        <div class="container">
-          <div class="section-title reveal" data-reveal>
+        <div class="container ledger">
+          <div class="ledger-card reveal" data-reveal>
             <p class="eyebrow">Where it goes</p>
-            <h2>Simple, transparent, and focused on people.</h2>
+            <h2>Transparent and neighbor-focused.</h2>
+            <div class="ledger-row">
+              <span>Meals and pantry support</span>
+              <span>Weekly</span>
+            </div>
+            <div class="ledger-row">
+              <span>Outreach and care</span>
+              <span>Ongoing</span>
+            </div>
+            <div class="ledger-row">
+              <span>Safe gathering space</span>
+              <span>Monthly</span>
+            </div>
+            <div class="ledger-row">
+              <span>Youth and family support</span>
+              <span>Seasonal</span>
+            </div>
           </div>
-          <div class="presence-grid">
-            <div class="presence-item reveal" data-reveal>
-              <h3>Meals and pantry support</h3>
-              <p>Groceries, hot meals, and supplies for neighbors in need.</p>
-            </div>
-            <div class="presence-item reveal" data-reveal>
-              <h3>Outreach and care</h3>
-              <p>Street-level outreach, prayer care, and community support.</p>
-            </div>
-            <div class="presence-item reveal" data-reveal>
-              <h3>Safe gathering space</h3>
-              <p>Rent, utilities, and upkeep for a welcoming place to meet.</p>
-            </div>
-            <div class="presence-item reveal" data-reveal>
-              <h3>Youth and family support</h3>
-              <p>Mentoring, resources, and steady care for families.</p>
-            </div>
+          <div class="ledger-card reveal" data-reveal>
+            <p class="eyebrow">Why we give</p>
+            <h2>Generosity keeps the door open.</h2>
+            <p>
+              Giving helps us stay rooted on the block and responsive to real needs as they come. We
+              keep it simple, clear, and focused on people.
+            </p>
+            <p>Thank you for choosing to share in this work.</p>
           </div>
         </div>
       </section>
 
       <section class="section" id="give-options">
         <div class="container">
-          <div class="section-title reveal" data-reveal>
+          <div class="paper reveal" data-reveal>
             <p class="eyebrow">Ways to give</p>
-            <h2>Choose a way that fits you.</h2>
+            <h2>Choose a path that fits you.</h2>
+            <p>Online, in-person, or through supplies and time. Every gift matters.</p>
           </div>
-          <div class="cards">
-            <article class="card reveal" data-reveal>
-              <img src="images/give.svg" alt="Placeholder photo for online giving" />
-              <div class="card-body">
-                <h3>Online giving</h3>
-                <p>Secure online giving link. Replace with your giving platform.</p>
-                <a href="#">Give online</a>
-              </div>
+          <div class="envelope-grid">
+            <article class="envelope-card reveal" data-reveal>
+              <h3>Online giving</h3>
+              <p>Secure online giving link. Replace with your giving platform.</p>
+              <a href="#">Give online →</a>
             </article>
-            <article class="card reveal" data-reveal>
-              <img src="images/neighborhood.svg" alt="Placeholder photo for in-person giving" />
-              <div class="card-body">
-                <h3>In-person giving</h3>
-                <p>Give during Sunday gathering or drop off at the office.</p>
-                <a href="need-help.html">Get directions</a>
-              </div>
+            <article class="envelope-card reveal" data-reveal>
+              <h3>In-person giving</h3>
+              <p>Give during Sunday gathering or drop off at the office.</p>
+              <a href="need-help.html">Get directions →</a>
             </article>
-            <article class="card reveal" data-reveal>
-              <img src="images/outreach.svg" alt="Placeholder photo for supplies" />
-              <div class="card-body">
-                <h3>Supplies and volunteering</h3>
-                <p>Donate pantry items, warm clothing, or your time.</p>
-                <a href="get-involved.html">See needs</a>
-              </div>
+            <article class="envelope-card reveal" data-reveal>
+              <h3>Supplies and volunteering</h3>
+              <p>Donate pantry items, warm clothing, or your time.</p>
+              <a href="get-involved.html">See needs →</a>
             </article>
           </div>
         </div>

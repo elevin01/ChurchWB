@@ -13,8 +13,18 @@
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/app.js" defer></script>
   </head>
-  <body>
+  <body class="page-immersive page-about">
     <a class="skip-link" href="#content">Skip to content</a>
+    <div
+      class="page-bg"
+      data-rotating-bg
+      data-images="images/IMG_8281.png,images/neighborhood.svg,images/pastor.svg,images/gathering.svg,images/prayer.svg"
+      data-manifest="assets/image-manifest.json"
+      aria-hidden="true"
+    >
+      <div class="bg-layer bg-layer--current"></div>
+      <div class="bg-layer bg-layer--next"></div>
+    </div>
     <header class="site-header">
       <div class="header-inner">
         <a class="logo" href="index.html">Bronx Community Church</a>
@@ -29,81 +39,192 @@
       </div>
     </header>
 
-    <main id="content">
-      <section class="section">
-        <div class="container hero">
-          <div class="hero-text reveal" data-reveal>
-            <p class="eyebrow">About our church</p>
-            <h1>Rooted here, present here.</h1>
-            <p>
-              Bronx Community Church is a local church shaped by everyday people. We care about showing
-              up, listening first, and staying close to the neighborhood we serve.
-            </p>
-          </div>
-          <div class="hero-media reveal" data-reveal>
-            <img src="images/neighborhood.svg" alt="Placeholder photo of Bronx streets" />
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container two-col">
-          <div class="reveal" data-reveal>
-            <img src="images/pastor.svg" alt="Placeholder photo of the pastor" />
-          </div>
-          <div class="reveal" data-reveal>
-            <p class="eyebrow">Pastor</p>
-            <h2>Pastor [Name]</h2>
-            <p>
-              I grew up on these blocks and know the strength and pressure our neighbors carry. My
-              calling is to be a steady presence, to listen well, and to help people find hope in Jesus
-              without pretense or pressure.
-            </p>
-            <p>
-              You will find me on the street, at the table, or praying with someone who needs a hand.
-              We are not here for a spotlight. We are here for people.
-            </p>
-          </div>
-        </div>
-      </section>
-
+    <main id="content" class="page-main">
       <section class="section">
         <div class="container">
-          <div class="section-title reveal" data-reveal>
-            <p class="eyebrow">Our identity</p>
-            <h2>Values that shape how we show up.</h2>
-          </div>
-          <div class="presence-grid">
-            <div class="presence-item reveal" data-reveal>
-              <h3>We show up.</h3>
-              <p>We stay close to our neighbors, especially when life feels heavy.</p>
-            </div>
-            <div class="presence-item reveal" data-reveal>
-              <h3>We serve before we speak.</h3>
-              <p>Care comes first. Trust is built over time, not through slogans.</p>
-            </div>
-            <div class="presence-item reveal" data-reveal>
-              <h3>We believe the gospel changes whole lives.</h3>
-              <p>Hope is personal and practical, for people and neighborhoods.</p>
-            </div>
-            <div class="presence-item reveal" data-reveal>
-              <h3>We work with the community.</h3>
-              <p>Partnerships matter. We are here alongside, not above.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          <article class="newspaper reveal" data-reveal>
+            <header class="newspaper-header">
+              <div>
+                <p class="newspaper-kicker">Bronx Community Church</p>
+                <h1 class="newspaper-title">The Neighborhood Herald</h1>
+                <p class="newspaper-tagline">Presence · Service · Community</p>
+              </div>
+              <div class="newspaper-meta">
+                <p>Vol. 1 · Issue 1</p>
+                <p>Bronx, NY</p>
+              </div>
+            </header>
 
-      <section class="section">
-        <div class="container callout reveal" data-reveal>
-          <details>
-            <summary>What we believe</summary>
-            <p>
-              We believe Jesus meets people with compassion, invites us into forgiveness and new life, and
-              calls us to love our neighbors in real ways. We keep our faith centered on grace and lived
-              out through service.
-            </p>
-          </details>
+            <div class="newspaper-grid">
+              <section class="newspaper-main">
+                <article class="news-article">
+                  <p class="news-tag">Who We Are</p>
+                  <h2 class="newspaper-headline">Equipping people to be like Jesus.</h2>
+                  <p class="news-dek">
+                    We believe that following Jesus makes life better for you, your family, and our
+                    community. It does not make life perfect, but it makes life make more sense.
+                  </p>
+                  <div class="newspaper-columns">
+                    <p>
+                      Whether you have been in church your whole life or never stepped foot in one, our
+                      aim is to create a safe place for everyone to be all that God has intended them to
+                      be.
+                    </p>
+                    <p>
+                      On this page you can learn more about us, who we are, and what we are all about. We
+                      believe God wants something for you, not something from you. And we want the same.
+                    </p>
+                    <p>
+                      Please reach out if we can help. We are a neighborhood church, and we will walk
+                      with you at a steady pace.
+                    </p>
+                  </div>
+                  <div class="news-links">
+                    <a href="need-help.html">Contact us →</a>
+                    <a href="#">Our team →</a>
+                  </div>
+                </article>
+
+                <article class="news-article">
+                  <p class="news-tag">Family Church Story</p>
+                  <h2 class="newspaper-headline">A place to call home in the Bronx.</h2>
+                  <div class="newspaper-columns">
+                    <p>
+                      You are searching for a church to call home. A place filled with real, compassionate
+                      people who welcome you with open arms. A place where your kids look forward to
+                      going, and you do too.
+                    </p>
+                    <p>
+                      Bronx Community Church is such a place. Here you will find the connection,
+                      community, and comfort you crave. We know how difficult it can be to find a home
+                      church that lovingly leads you closer to Jesus, so we keep a simple, real-life
+                      approach to all things church.
+                    </p>
+                    <p>
+                      We focus on sharing biblical truth, participating in daily discipleship, modeling
+                      obedience, engaging in meaningful gatherings, and serving generously. We aim to be
+                      humble and real: we want something for you, not from you.
+                    </p>
+                    <p>
+                      Life without a strong church community can feel lonely, chaotic, and empty. We want
+                      more for you than that. Together, we can build stronger families, healthier
+                      relationships, and happier lives while stepping into the fullness of all God
+                      designed us to be. At Bronx Community Church, community means family.
+                    </p>
+                  </div>
+                </article>
+
+                <article class="news-article">
+                  <p class="news-tag">Core Values</p>
+                  <h2 class="newspaper-headline">This is what we want to be known as.</h2>
+                  <p class="news-dek">These are our core values, the way we want to live together.</p>
+                  <div class="values-grid">
+                    <div class="value-card">
+                      <h3>Unconditionally loving</h3>
+                      <p>We see each person's God-given value and strive to love all as Christ loves us.</p>
+                      <p class="value-verse">John 13:34-35</p>
+                    </div>
+                    <div class="value-card">
+                      <h3>Selflessly generous</h3>
+                      <p>
+                        We actively seek opportunities to give our time, talent, and treasures to advance
+                        the kingdom of God.
+                      </p>
+                      <p class="value-verse">1 John 3:16-18</p>
+                    </div>
+                    <div class="value-card">
+                      <h3>Intimacy driven</h3>
+                      <p>
+                        We are driven by our relationship with the Father. He is the source of life and
+                        shapes who we are.
+                      </p>
+                      <p class="value-verse">John 15:4</p>
+                    </div>
+                    <div class="value-card">
+                      <h3>Humble and real</h3>
+                      <p>
+                        We will be open, teachable, and genuine in all interactions, the same at church as
+                        everywhere else.
+                      </p>
+                      <p class="value-verse">James 2:14</p>
+                    </div>
+                    <div class="value-card">
+                      <h3>Fearlessly obedient</h3>
+                      <p>
+                        Through a consistent commitment to God's word and voice, we receive direction and
+                        follow it with all we are.
+                      </p>
+                      <p class="value-verse">John 14:23</p>
+                    </div>
+                    <div class="value-card">
+                      <h3>Faithful farmers</h3>
+                      <p>
+                        With patience and grace, we come alongside everyone and lovingly lead them toward
+                        Jesus.
+                      </p>
+                      <p class="value-verse">Matthew 9:35-38</p>
+                    </div>
+                    <div class="value-card">
+                      <h3>Intentional equippers</h3>
+                      <p>
+                        By teaching people how to use the Word and walk fully in their gifts, we give
+                        them freedom to live out their calling.
+                      </p>
+                      <p class="value-verse">1 Timothy 3:16</p>
+                    </div>
+                    <div class="value-card">
+                      <h3>Joyfully loyal</h3>
+                      <p>
+                        We are committed to the great commission and invest our time, resources, and
+                        energy to bring hurting souls closer to Jesus.
+                      </p>
+                      <p class="value-verse">Matthew 28:19</p>
+                    </div>
+                  </div>
+                </article>
+              </section>
+
+              <aside class="newspaper-sidebar">
+                <div class="news-box">
+                  <img src="images/pastor.svg" alt="Placeholder photo of the pastor with neighbors" />
+                  <h3>Pastor [Name]</h3>
+                  <p>
+                    Raised here, serving here. I want people to feel seen, safe, and loved long before
+                    they feel pressured.
+                  </p>
+                </div>
+                <div class="news-box">
+                  <h3>Join us!</h3>
+                  <p>
+                    Sunday gathering at 10:30 AM. Come as you are, bring your family, and sit at the
+                    table with us.
+                  </p>
+                  <a href="get-involved.html">Get involved →</a>
+                </div>
+                <div class="news-box">
+                  <h3>Contact us</h3>
+                  <p><strong>Email:</strong> hello@bronxchurch.org</p>
+                  <p><strong>Phone:</strong> (718) 555-1234</p>
+                  <p><strong>Office:</strong> Tue - Fri, 10 AM - 4 PM</p>
+                </div>
+                <div class="news-box">
+                  <h3>Our team</h3>
+                  <ul class="news-list">
+                    <li>Pastor [Name]</li>
+                    <li>Outreach Lead [Name]</li>
+                    <li>Family Care [Name]</li>
+                    <li>Worship + Tech [Name]</li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+
+            <footer class="newspaper-footer">
+              <div class="news-brief">Presence · Service · Community</div>
+              <div class="news-brief">Need help? Call or text (718) 555-1234.</div>
+              <div class="news-brief">Bronx, NY · Sunday gathering 10:30 AM</div>
+            </footer>
+          </article>
         </div>
       </section>
     </main>
