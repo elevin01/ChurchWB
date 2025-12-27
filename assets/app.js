@@ -182,3 +182,72 @@ if (reduceMotion) {
 
   revealItems.forEach((item) => revealObserver.observe(item));
 }
+
+const siteFooter = document.querySelector('.site-footer');
+
+if (siteFooter) {
+  const footerObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          document.body.classList.add('footer-focus');
+        } else {
+          document.body.classList.remove('footer-focus');
+        }
+      });
+    },
+    {
+      threshold: 0.6,
+    }
+  );
+
+  footerObserver.observe(siteFooter);
+}
+
+const footerVerse = document.querySelector('[data-verse]');
+
+if (footerVerse) {
+  const verses = [
+    {
+      ref: '1 Peter 4:10',
+      text:
+        'Each of you should use whatever gift you have received to serve others, as faithful stewards of God’s grace in its various forms.',
+    },
+    {
+      ref: 'Matthew 25:40',
+      text:
+        'The King will reply, “Truly I tell you, whatever you did for one of the least of these brothers and sisters of mine, you did for me.”',
+    },
+    {
+      ref: 'Galatians 5:13',
+      text:
+        'You, my brothers and sisters, were called to be free. But do not use your freedom to indulge the flesh; rather, serve one another humbly in love.',
+    },
+    {
+      ref: 'Colossians 3:23',
+      text:
+        'Whatever you do, work at it with all your heart, as working for the Lord, not for human masters.',
+    },
+  ];
+
+  const verseText = footerVerse.querySelector('p');
+  const verseRef = footerVerse.querySelector('cite');
+
+  const setFooterVerse = () => {
+    const choice = verses[Math.floor(Math.random() * verses.length)];
+    if (verseText) {
+      verseText.textContent = choice.text;
+    }
+    if (verseRef) {
+      verseRef.textContent = choice.ref;
+    }
+  };
+
+  setFooterVerse();
+
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      setFooterVerse();
+    }
+  });
+}
