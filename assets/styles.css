@@ -817,6 +817,146 @@ body.page-immersive {
   transform: rotate(-0.9deg);
 }
 
+.surface {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+}
+
+.surface > .eyebrow,
+.surface > h2,
+.surface > p {
+  color: #f7f1e8;
+  text-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+.flyer-grid {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 2.5rem;
+}
+
+.flyer-card {
+  background: rgba(248, 245, 238, 0.92);
+  border: 1px solid rgba(47, 42, 38, 0.22);
+  border-radius: 2px;
+  padding: 1.2rem 1.3rem;
+  box-shadow: 0 10px 22px rgba(47, 42, 38, 0.18);
+  color: var(--color-ink);
+  position: relative;
+  text-shadow: none;
+}
+
+.flyer-card--stone {
+  background: rgba(246, 241, 233, 0.92);
+}
+
+.flyer-card--sage {
+  background: rgba(237, 242, 233, 0.92);
+}
+
+.flyer-card--mist {
+  background: rgba(237, 240, 245, 0.92);
+}
+
+.flyer-card h3 {
+  margin-bottom: 0.8rem;
+}
+
+.flyer-meta {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  margin: 0 0 0.6rem;
+  color: rgba(47, 42, 38, 0.7);
+}
+
+.flyer-line {
+  margin: 0 0 0.6rem;
+}
+
+.flyer-label {
+  font-weight: 600;
+}
+
+.flyer-link {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  display: inline-block;
+  margin-top: 0.6rem;
+}
+
+.flyer-card:hover,
+.flyer-card:focus-within {
+  border-color: rgba(47, 42, 38, 0.4);
+}
+
+.flyer-card a {
+  color: inherit;
+}
+
+.flyer-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f7e6c8 0 35%, #b07b4f 36% 70%, #6f4b2f 71% 100%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.flyer-card:hover .flyer-link,
+.flyer-card:focus-within .flyer-link {
+  text-decoration: underline;
+}
+
+.flyer-card:nth-child(3n) {
+  margin-top: 10px;
+}
+
+.flyer-card:nth-child(4n) {
+  margin-top: 18px;
+}
+
+.flyer-card--tall {
+  min-height: 320px;
+}
+
+.flyer-card--short {
+  min-height: 220px;
+}
+
+.flyer-card--long {
+  min-height: 360px;
+}
+
+.conversation {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(47, 42, 38, 0.2);
+}
+
+.conversation p {
+  max-width: 520px;
+  color: #f7f1e8;
+}
+
+.conversation-form {
+  background: rgba(248, 245, 238, 0.96);
+  border: 1px solid rgba(47, 42, 38, 0.2);
+  border-radius: 2px;
+  padding: 1.6rem;
+}
+
+.conversation-form button {
+  margin-top: 1rem;
+}
+
 .newspaper {
   background: #ffffff;
   color: var(--color-ink);

@@ -57,75 +57,91 @@
 
       <section class="section" id="board">
         <div class="container">
-          <div class="board board--full reveal" data-reveal>
-            <div class="board-heading">
-              <h2>Volunteer board</h2>
-              <p>Pick a note, grab a role, and we will follow up with care.</p>
-            </div>
-            <div class="board-grid board-grid--large">
-              <article class="note note--yellow note--large">
+          <div class="surface reveal" data-reveal>
+            <p class="eyebrow">Ways to serve</p>
+            <h2>Invitations laid out side by side.</h2>
+            <p>Printed flyers, simple details, and a quiet place to say yes.</p>
+
+            <div class="flyer-grid" aria-label="Serve and gather opportunities">
+              <article class="flyer-card flyer-card--stone flyer-card--tall">
+                <p class="flyer-meta">Serve</p>
                 <h3>Serve with us</h3>
-                <p><strong>Who it is for:</strong> People who enjoy hands-on care.</p>
-                <p><strong>Time:</strong> 2 to 4 hours weekly or biweekly.</p>
-                <a href="#interest-form">I am interested →</a>
+                <p class="flyer-line"><span class="flyer-label">Who it is for:</span> People who enjoy hands-on care.</p>
+                <p class="flyer-line"><span class="flyer-label">Time:</span> Two to four hours weekly or biweekly.</p>
+                <a class="flyer-link" href="#interest-form">I’m interested →</a>
               </article>
-              <article class="note note--green note--large">
+              <article class="flyer-card flyer-card--sage flyer-card--short">
+                <p class="flyer-meta">Gather</p>
                 <h3>Join a gathering</h3>
-                <p><strong>Who it is for:</strong> People looking for prayer and community.</p>
-                <p><strong>Time:</strong> 90 minutes each week.</p>
-                <a href="#interest-form">I am interested →</a>
+                <p class="flyer-line"><span class="flyer-label">Who it is for:</span> People looking for prayer and community.</p>
+                <p class="flyer-line"><span class="flyer-label">Time:</span> Ninety minutes each week.</p>
+                <a class="flyer-link" href="#interest-form">I’m interested →</a>
               </article>
-              <article class="note note--blue note--large">
+              <article class="flyer-card flyer-card--mist flyer-card--long">
+                <p class="flyer-meta">Partner</p>
                 <h3>Partner with outreach</h3>
-                <p><strong>Who it is for:</strong> Local leaders and community groups.</p>
-                <p><strong>Time:</strong> Monthly planning and outreach days.</p>
-                <a href="#interest-form">I am interested →</a>
+                <p class="flyer-line"><span class="flyer-label">Who it is for:</span> Local leaders and community groups.</p>
+                <p class="flyer-line"><span class="flyer-label">Time:</span> Monthly planning and outreach days.</p>
+                <a class="flyer-link" href="#interest-form">I’m interested →</a>
               </article>
-              <article class="note note--white note--large">
+              <article class="flyer-card flyer-card--stone flyer-card--short">
+                <p class="flyer-meta">One-time</p>
                 <h3>Volunteer occasionally</h3>
-                <p><strong>Who it is for:</strong> People with limited time.</p>
-                <p><strong>Time:</strong> One-time needs and seasonal events.</p>
-                <a href="#interest-form">I am interested →</a>
+                <p class="flyer-line"><span class="flyer-label">Who it is for:</span> People with limited time.</p>
+                <p class="flyer-line"><span class="flyer-label">Time:</span> One-time needs and seasonal events.</p>
+                <a class="flyer-link" href="#interest-form">I’m interested →</a>
               </article>
-              <article class="note note--white note--wide" id="interest-form">
-                <h3>Sign-up sheet</h3>
-                <p>Tell us how you want to help. We respond within 48 hours.</p>
-                <form>
-                  <div class="form-grid">
-                    <label>
-                      Name
-                      <input type="text" name="name" placeholder="Your name" required />
-                    </label>
-                    <label>
-                      Email
-                      <input type="email" name="email" placeholder="you@example.com" required />
-                    </label>
-                    <label>
-                      Phone
-                      <input type="tel" name="phone" placeholder="(718) 555-1234" />
-                    </label>
-                    <label>
-                      I am interested in
-                      <select name="interest" required>
-                        <option value="">Select one</option>
-                        <option>Serving with meals</option>
-                        <option>Prayer and gatherings</option>
-                        <option>Neighborhood outreach</option>
-                        <option>Youth and family support</option>
-                      </select>
-                    </label>
-                  </div>
-                  <label>
-                    Availability
-                    <textarea name="availability" placeholder="Tell us what days or times work for you."></textarea>
-                  </label>
-                  <button class="btn primary" type="submit">Send interest</button>
-                </form>
+              <article class="flyer-card flyer-card--sage flyer-card--tall">
+                <p class="flyer-meta">Serve</p>
+                <h3>One-time projects</h3>
+                <p class="flyer-line"><span class="flyer-label">Who it is for:</span> People who can jump in quickly.</p>
+                <p class="flyer-line"><span class="flyer-label">Time:</span> One afternoon or weekend morning.</p>
+                <a class="flyer-link" href="#interest-form">I’m interested →</a>
               </article>
-              <article class="note note--yellow">
+              <article class="flyer-card flyer-card--mist flyer-card--long">
+                <p class="flyer-meta">Details</p>
                 <h3>What happens next?</h3>
-                <p>We will call or text to listen first, then match you with a team.</p>
+                <p class="flyer-line"><span class="flyer-label">How we respond:</span> We call or text to listen first.</p>
+                <p class="flyer-line"><span class="flyer-label">Next step:</span> We match you with a team that fits.</p>
+                <a class="flyer-link" href="#interest-form">I’m interested →</a>
               </article>
+            </div>
+
+            <div class="conversation" id="interest-form">
+              <p class="eyebrow">Tell us how you’d like to help</p>
+              <h3>We will follow up with care.</h3>
+              <p>Share what fits your life. We respond within 48 hours.</p>
+              <form class="conversation-form">
+                <div class="form-grid">
+                  <label>
+                    Name
+                    <input type="text" name="name" placeholder="Your name" required />
+                  </label>
+                  <label>
+                    Email
+                    <input type="email" name="email" placeholder="you@example.com" required />
+                  </label>
+                  <label>
+                    Phone
+                    <input type="tel" name="phone" placeholder="(718) 555-1234" />
+                  </label>
+                  <label>
+                    I am interested in
+                    <select name="interest" required>
+                      <option value="">Select one</option>
+                      <option>Serving with meals</option>
+                      <option>Prayer and gatherings</option>
+                      <option>Neighborhood outreach</option>
+                      <option>Youth and family support</option>
+                    </select>
+                  </label>
+                </div>
+                <label>
+                  Availability
+                  <textarea name="availability" placeholder="Tell us what days or times work for you."></textarea>
+                </label>
+                <button class="btn primary" type="submit">Send interest</button>
+              </form>
             </div>
           </div>
         </div>
