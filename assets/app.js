@@ -240,7 +240,7 @@ if (siteFooter) {
   const footerObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && window.scrollY > 120) {
           document.body.classList.add('footer-focus');
         } else {
           document.body.classList.remove('footer-focus');
