@@ -240,7 +240,7 @@ if (siteFooter) {
   const footerObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        const isSmallScreen = window.matchMedia('(max-width: 720px)').matches;
+        const isSmallScreen = window.matchMedia('(max-width: 1024px)').matches;
         const nearBottom =
           window.innerHeight + window.scrollY >= document.body.offsetHeight - 120;
         if (entry.isIntersecting && !isSmallScreen && nearBottom && window.scrollY > 120) {

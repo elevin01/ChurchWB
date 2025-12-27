@@ -1361,9 +1361,11 @@ body.page-immersive {
 }
 
 .activity-strip {
-  position: static;
-  transform: none;
-  width: min(980px, 100%);
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.5rem, 4vh, 2.8rem);
+  transform: translateX(-50%);
+  width: min(980px, 92%);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
@@ -1453,6 +1455,11 @@ body.page-immersive {
 }
 
 @media (max-width: 720px) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
   .home-main {
     align-items: flex-start;
     padding-top: 6rem;
@@ -1489,12 +1496,24 @@ body.page-immersive {
   }
 
   .activity-strip {
-    margin-top: 0;
+    position: static;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: min(980px, 100%);
+    margin-top: 2.2rem;
     border-radius: 20px;
   }
 
   .activity-item {
     flex-wrap: wrap;
+  }
+}
+
+@media (pointer: coarse) {
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 
