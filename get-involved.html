@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bronx Community Church | Get Involved</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="index.html">Bronx Community Church</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="get-involved.html" aria-current="page">Get Involved</a>
+          <a href="need-help.html">Need Help?</a>
+          <a href="give.html">Give</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <section class="section">
+        <div class="container hero">
+          <div class="hero-text reveal" data-reveal>
+            <p class="eyebrow">Get involved</p>
+            <h1>Join the work that keeps us present.</h1>
+            <p>
+              There is room for every kind of helper. Whether you can serve weekly or once in a while,
+              we will walk with you and help you find your place.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#interest-form">I am interested</a>
+            </div>
+          </div>
+          <div class="hero-media reveal" data-reveal>
+            <img src="images/outreach.svg" alt="Placeholder photo of volunteers serving" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-title reveal" data-reveal>
+            <p class="eyebrow">Clear paths</p>
+            <h2>Choose a way to serve that fits your life.</h2>
+          </div>
+          <div class="cards">
+            <article class="card reveal" data-reveal>
+              <img src="images/outreach.svg" alt="Placeholder photo of food outreach" />
+              <div class="card-body">
+                <h3>Serve with us</h3>
+                <p><strong>Who it is for:</strong> People who enjoy hands-on care.</p>
+                <p><strong>Time:</strong> 2 to 4 hours weekly or biweekly.</p>
+                <a href="#interest-form">I am interested</a>
+              </div>
+            </article>
+            <article class="card reveal" data-reveal>
+              <img src="images/gathering.svg" alt="Placeholder photo of small gathering" />
+              <div class="card-body">
+                <h3>Join a gathering</h3>
+                <p><strong>Who it is for:</strong> People looking for prayer and community.</p>
+                <p><strong>Time:</strong> 90 minutes each week.</p>
+                <a href="#interest-form">I am interested</a>
+              </div>
+            </article>
+            <article class="card reveal" data-reveal>
+              <img src="images/neighborhood.svg" alt="Placeholder photo of neighborhood outreach" />
+              <div class="card-body">
+                <h3>Partner with outreach</h3>
+                <p><strong>Who it is for:</strong> Local leaders and community groups.</p>
+                <p><strong>Time:</strong> Monthly planning and outreach days.</p>
+                <a href="#interest-form">I am interested</a>
+              </div>
+            </article>
+            <article class="card reveal" data-reveal>
+              <img src="images/youth.svg" alt="Placeholder photo of youth support" />
+              <div class="card-body">
+                <h3>Volunteer occasionally</h3>
+                <p><strong>Who it is for:</strong> People with limited time.</p>
+                <p><strong>Time:</strong> One-time needs and seasonal events.</p>
+                <a href="#interest-form">I am interested</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="interest-form">
+        <div class="container two-col">
+          <div class="reveal" data-reveal>
+            <p class="eyebrow">I am interested</p>
+            <h2>Tell us how you want to help.</h2>
+            <p>
+              This short form helps us follow up with care. We respond within 48 hours.
+            </p>
+          </div>
+          <form class="reveal" data-reveal>
+            <div class="form-grid">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                Phone
+                <input type="tel" name="phone" placeholder="(718) 555-1234" />
+              </label>
+              <label>
+                I am interested in
+                <select name="interest" required>
+                  <option value="">Select one</option>
+                  <option>Serving with meals</option>
+                  <option>Prayer and gatherings</option>
+                  <option>Neighborhood outreach</option>
+                  <option>Youth and family support</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Availability
+              <textarea name="availability" placeholder="Tell us what days or times work for you."></textarea>
+            </label>
+            <button class="btn primary" type="submit">Send interest</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3>Bronx Community Church</h3>
+          <p>Placeholder Address, Bronx, NY</p>
+          <p>Sunday gathering: 10:30 AM</p>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <p><a href="mailto:hello@bronxchurch.org">hello@bronxchurch.org</a></p>
+          <p><a href="tel:+17185551234">(718) 555-1234</a></p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <p><a href="about.html">About</a></p>
+          <p><a href="need-help.html">Need Help?</a></p>
+          <p><a href="give.html">Give</a></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
