@@ -1654,3 +1654,13 @@ body.page-immersive {
     transition: none;
   }
 }
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .activity-strip {
+    display: none;
+  }
+
+  .footer-verse {
+    display: none;
+  }
+}
