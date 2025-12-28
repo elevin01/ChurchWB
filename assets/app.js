@@ -305,3 +305,15 @@ if (footerVerse) {
     }
   });
 }
+
+const activityDates = document.querySelectorAll('[data-activity-date]');
+
+if (activityDates.length) {
+  const now = new Date();
+  const month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now).toUpperCase();
+  const year = new Intl.DateTimeFormat('en-US', { year: 'numeric' }).format(now);
+  const label = `${month} ${year}`;
+  activityDates.forEach((node) => {
+    node.textContent = label;
+  });
+}
