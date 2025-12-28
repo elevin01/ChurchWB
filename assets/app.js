@@ -30,7 +30,7 @@ if (isHomeScreen) {
       return;
     }
     isNavigating = true;
-    window.location.href = 'about.html';
+    window.location.href = '/about/';
   };
 
   window.addEventListener(

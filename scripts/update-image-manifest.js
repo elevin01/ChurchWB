@@ -12,7 +12,7 @@ const files = fs
   .filter((file) => validExtensions.has(path.extname(file).toLowerCase()))
   .filter((file) => !excludedNames.has(file.toLowerCase()))
   .sort()
-  .map((file) => `images/${file}`);
+  .map((file) => `/images/${file}`);
 
 fs.writeFileSync(manifestPath, `${JSON.stringify(files, null, 2)}\n`);
 console.log(`Wrote ${files.length} image paths to ${manifestPath}`);
