@@ -1344,14 +1344,14 @@ body.page-immersive {
 }
 
 .home-right {
-  max-width: 320px;
+  max-width: 420px;
   justify-self: end;
   text-align: right;
 }
 
 .home-mission {
-  font-size: 1rem;
-  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .home-link {
