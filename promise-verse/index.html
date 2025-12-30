@@ -13,14 +13,15 @@
             margin: 0;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: flex-start;
             background: var(--bg);
             color: var(--text);
             transition: background-color 0.5s ease, color 0.5s ease;
             font-family: var(--font-body);
             text-align: center;
-            padding: 32px 16px 88px;
+            padding: 32px 16px 24px;
         }
 
         .app {
@@ -29,6 +30,8 @@
             flex-direction: column;
             align-items: center;
             gap: 16px;
+            min-height: 100vh;
+            justify-content: center;
         }
 
         .header {
@@ -89,7 +92,8 @@
         }
 
         .spanish,
-        .telugu {
+        .telugu,
+        .hindi {
             font-size: var(--subverse-size);
             margin: 8px 0;
             line-height: 1.5;
@@ -148,15 +152,17 @@
         }
 
         footer {
-            position: fixed;
-            bottom: 0;
             width: 100%;
             text-align: center;
-            padding: 10px;
+            padding: 6px 8px 8px;
             background-color: var(--footer-bg);
-            font-size: 0.85rem;
+            font-size: 0.7rem;
             color: var(--muted);
-            backdrop-filter: blur(4px);
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
         }
 
         body[data-theme="classic"] {
@@ -251,8 +257,8 @@
             <div class="theme-switch">
                 <label for="themeSelect">Theme</label>
                 <select id="themeSelect">
-                    <option value="classic" selected>Classic</option>
-                    <option value="gradient">Gradient Card</option>
+                    <option value="classic">Classic</option>
+                    <option value="gradient" selected>Gradient Card</option>
                     <option value="minimal">Minimal</option>
                     <option value="paper">Warm Paper</option>
                 </select>
@@ -263,6 +269,7 @@
             <div class="verse" id="englishVerse"></div>
             <div class="spanish" id="spanishVerse"></div>
             <div class="telugu" id="teluguVerse"></div>
+            <div class="hindi" id="hindiVerse"></div>
         </div>
 
         <div class="toggles">
@@ -273,11 +280,15 @@
             <label class="toggle">
                 <input type="checkbox" id="toggletelugu" checked> Show Telugu
             </label>
+
+            <label class="toggle">
+                <input type="checkbox" id="togglehindi" checked> Show Hindi
+            </label>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 IGC NYC Church </p>
+        <p>&copy; 2025 <a href="/">International Gospel Church New York City</a></p>
     </footer>
 
     <script>
@@ -286,342 +297,399 @@
             english: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future. (Jeremiah 29:11)",
             telugu: "నేను మీకు కలిగించు యోచనలను ఎరిగి యున్నాను; అవి కల్యాణమునకు సంబంధించి యున్నవి గాని అపాయమునకు సంబంధించి యుండవు, మీకు భవిష్యత్తు మరియు ఆశ కలుగజేయునట్లు. (యిర్మియా 29:11)",
             spanish: "Porque yo sé los planes que tengo para ustedes, declara el Señor, planes de bienestar y no de calamidad, para darles un futuro y una esperanza. (Jeremías 29:11)",
+            hindi: "क्योंकि यहोवा की यह वाणी है, कि जो कल्पनाएं मैं तुम्हारे विषय करता हूँ उन्हें मैं जानता हूँ, वे हानी की नहीं, वरन कुशल ही की हैं, और अन्त में तुम्हारी आशा पूरी करूंगा। (यिर्मयाह 29:11)",
             "link": "https://www.bible.com/bible/111/JER.29.11.NIV"
         },
         {
             english: "So do not fear, for I am with you; do not be dismayed, for I am your God. I will strengthen you and help you; I will uphold you with my righteous right hand. (Isaiah 41:10)",
             telugu: "నీవు భయపడవద్దు, నేను నీతో ఉన్నాను; నీవు విస్మయపడవద్దు, నేను నీ దేవుడనై యున్నాను. నేను నీకు బలమిచ్చి నీకు సహాయం చేసెదను, నీతిమంతుడైన నా కుడిచేతితో నిన్ను ఆధారపడవు చేసెదను. (యెషయా 41:10)",
             spanish: "No temas, porque yo estoy contigo; no te angusties, porque yo soy tu Dios. Te fortaleceré y te ayudaré; te sostendré con mi diestra justa. (Isaías 41:10)",
+            hindi: "इसलिये डर मत, क्योंकि मैं तेरे साथ हूँ; घबराना मत, क्योंकि मैं तेरा परमेश्वर हूँ। मैं तुझे बल दूँगा और तेरी सहायता करूँगा; मैं अपनी धर्मी दाहिनी हाथ से तुझे संभालूँगा। (यशायाह 41:10)",
             "link": "https://www.bible.com/bible/111/ISA.41.10.NIV"
         },
         {
             english: "Through these he has given us his very great and precious promises, so that through them you may participate in the divine nature, having escaped the corruption in the world caused by evil desires. (2 Peter 1:4)",
             telugu: "ఈ వాగ్దానములద్వారా మనకు దివ్య స్వభావంలో పాలుపంచుకొనునట్లు, మరియు లోకములో అపవిత్రతను కలిగించిన దురాశల నుండి తప్పించుకొనునట్లు, ఆయన మనకు ఎంతో గొప్పదైన మరియు విలువైన వాగ్దానములను అనుగ్రహించారు. (2 పేతురు 1:4)",
             spanish: "Por medio de ellas nos ha dado sus preciosas y grandísimas promesas, para que por ellas lleguen a participar de la naturaleza divina, habiendo escapado de la corrupción que hay en el mundo a causa de los malos deseos. (2 Pedro 1:4)",
+            hindi: "इनके द्वारा उसने हमें अपने बहुत बड़े और कीमती वादे दिए हैं, ताकि उनके द्वारा आप दैवीय प्रकृति में भागीदार बन सकें, जो बुरे इच्छाओं के कारण संसार में होने वाले भ्रष्टाचार से बच गए हैं। (2 पतरस 1:4)",
             "link": "https://www.bible.com/bible/111/2PE.1.4.NIV"
         },
         {
             english: "But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint. (Isaiah 40:31)",
             telugu: "యెహోవాను ఆశ్రయించువారు తాము శక్తిని పునరుద్ధరించుకొందురు. వారు గద్దలవలె రెక్కలు చాపి ఎగిరిపోదురు; వారు పరుగెత్తినను అలసిపోవరు; నడిచినను నిరుత్సాహ పడరు. (యెషయా 40:31)",
             spanish: "Pero los que confían en el Señor renovarán sus fuerzas; levantarán alas como las águilas, correrán y no se cansarán, caminarán y no se fatigarán. (Isaías 40:31)",
+            hindi: "परन्तु जो यहोवा में आशा रखते हैं वे अपनी शक्ति को नया करेंगे। वे गरुड़ के पंखों की भाँति उड़ेंगे; वे दौड़ेंगे और थकेंगे नहीं, वे चलेंगे और मुरझाएंगे नहीं। (यशायाह 40:31)",
             "link": "https://www.bible.com/bible/111/ISA.40.31.NIV"
         },
         {
             english: "Take delight in the Lord, and he will give you the desires of your heart. (Psalm 37:4)",
             telugu: "యెహోవాలో ఆనందించుము, అప్పుడు ఆయన నీ హృదయ మనోరథములను నెరవేర్చును. (కీర్తనలు 37:4)",
             spanish: "Deléitate en el Señor, y él te concederá los deseos de tu corazón. (Salmos 37:4)",
+            hindi: "यहोवा में आनन्दित हो, और वह तेरे हृदय की इच्छाओं को पूरा करेगा। (भजन संहिता 37:4)",
             "link": "https://www.bible.com/bible/111/PSA.37.4.NIV"
         },
         {
             english: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight. (Proverbs 3:5-6)",
             telugu: "నీవు నీ ఆంతరంగంలో పూర్ణ విశ్వాసముతో యెహోవాపై ఆధారపడుము; నీ స్వాంతరజ్ఞానముమీద ఆధారపడకుము; నీ మార్గములన్నిటిలోను ఆయనను జ్ఞాపకముచేసికొనుము, అప్పుడు ఆయన నీ మార్గములను సరిచేయును. (సామెతలు 3:5-6)",
             spanish: "Confía en el Señor con todo tu corazón y no te apoyes en tu propia prudencia; reconócelo en todos tus caminos, y él allanará tus sendas. (Proverbios 3:5-6)",
+            hindi: "अपने पूरे हृदय से यहोवा पर भरोसा रखो और अपनी समझ पर निर्भर मत हो; अपनी सभी राहों में उसे जानो, और वह तेरे मार्गों को सीधा करेगा। (नीतिवचन 3:5-6)",
             "link": "https://www.bible.com/bible/111/PRO.3.5-6.NIV"
         },
         {
             english: "Come to me, all you who are weary and burdened, and I will give you rest. Take my yoke upon you and learn from me, for I am gentle and humble in heart, and you will find rest for your souls. (Matthew 11:28-29)",
             telugu: "నరువుపడినవారూ, భారముపడినవారూ, అందరు నాయొద్దకు రండి, నేను మీకు విశ్రాంతి కలుగజేసెదను. నా మోకాలిని మీ మీద వేసికొనుము మరియు నాయొద్ద నేర్చుకొనుము, ఎందుకంటే నేను మనసు లోన సౌమ్యుడను మరియు వినయముగలవాడను; అప్పుడు మీ ఆత్మల కొరకు విశ్రాంతిని పొందుదురు. (మత్తయి 11:28-29)",
             spanish: "Vengan a mí, todos los que están cansados y cargados, y yo les daré descanso. Lleven mi yugo sobre ustedes y aprendan de mí, porque soy manso y humilde de corazón, y hallarán descanso para sus almas. (Mateo 11:28-29)",
+            hindi: "हे सभी जो परिश्रांत और भारित हो, मेरे पास आओ, और मैं तुम्हें विश्राम दूँगा। मेरा जुग्गी अपने ऊपर ले लो और मुझसे सीखो, क्योंकि मैं मन में नम्र और विनम्र हूँ; और तुम अपनी आत्माओं के लिए विश्राम पाओगे। (मत्ती 11:28-29)",
             "link": "https://www.bible.com/bible/111/MAT.11.28-29.NIV"
         },
         {
             english: "And my God will meet all your needs according to the riches of his glory in Christ Jesus. (Philippians 4:19)",
             telugu: "క్రీస్తు యేసునందు ఆయన మహిమలోని సంపదప్రకారము నా దేవుడు మీ అందరియొక్క అవసరములను తీరుస్తాడు. (ఫిలిప్పీయులకు 4:19)",
             spanish: "Mi Dios, pues, suplirá todo lo que les falta conforme a sus riquezas en gloria en Cristo Jesús. (Filipenses 4:19)",
+            hindi: "मेरा परमेश्वर उसकी महिमा की समृद्धि के अनुसार जो मसीह यीशु में है, तुम्हारे सभी आवश्यकताओं को पूरा करेगा। (फिलिप्पियों 4:19)",
             "link": "https://www.bible.com/bible/111/PHP.4.19.NIV"
         },
         {
             english: "When you pass through the waters, I will be with you; and when you pass through the rivers, they will not sweep over you. When you walk through the fire, you will not be burned; the flames will not set you ablaze. (Isaiah 43:2)",
             telugu: "నీరు గుండా వెళ్లినప్పుడు నేను నీతో ఉండెదను; నదులను దాటినప్పుడు అవి నీమీద పారవు; అగ్ని గుండా నడిచినప్పుడు నీవు కాలిపోదు; జ్వాలలు నీకు ఎగిసిపడవు. (యెషయా 43:2)",
             spanish: "Cuando pases por las aguas, yo estaré contigo; y si por los ríos, no te cubrirán. Cuando pases por el fuego, no te quemarás, ni la llama arderá en ti. (Isaías 43:2)",
+            hindi: "जब तुम जल के माध्यम से जाओगे, तो मैं तुम्हारे साथ रहूँगा; और जब तुम नदियों के माध्यम से जाओगे, वे तुम्हें नहीं बहाएँगी। जब तुम आग के माध्यम से चलोगे, तो तुम जलोगे नहीं; और लौ तुम्हें नहीं जलाएगी। (यशायाह 43:2)",
             "link": "https://www.bible.com/bible/111/ISA.43.2.NIV"
         },
         {
             english: "Be strong and courageous. Do not be afraid or terrified because of them, for the Lord your God goes with you; he will never leave you nor forsake you. (Deuteronomy 31:6)",
             telugu: "ధైర్యంగానూ, బలంగా ఉండుడి; వారికి భయపడకుడి, కంగారు పడకుడి; ఎందుకంటే యెహోవా మీ దేవుడు మీతో ఉండును; ఆయన నీతో విడువడు, నిన్ను త్యజించడు. (ద్వితీయోపదేశకాండము 31:6)",
             spanish: "Sean fuertes y valientes. No teman ni se aterroricen a causa de ellos, porque el Señor su Dios va con ustedes; nunca los dejará ni los abandonará. (Deuteronomio 31:6)",
+            hindi: "मज़बूत और साहसी बनो। उनका भय मत करो और न ही डरो, क्योंकि यहोवा तुम्हारा परमेश्वर तुम्हारे साथ जाता है; वह कभी तुम्हें नहीं छोड़ेगा और न ही तुम्हें परित्याग करेगा। (व्यवस्थाविवरण 31:6)",
             "link": "https://www.bible.com/bible/111/DEU.31.6.NIV"
         },
         {
             english: "Though the mountains be shaken and the hills be removed, yet my unfailing love for you will not be shaken nor my covenant of peace be removed, says the Lord, who has compassion on you. (Isaiah 54:10)",
             telugu: "పర్వతాలు కదలబడినా, కొండలు తొలగిపోయినా, నా ప్రేమ నీపై నుండి తొలగిపోదు; నా శాంతి నిబంధన కూడా కదలిపోదు, అనేది నీపై కరుణ కలిగించువాడైన యెహోవా వాక్కు. (యెషయా 54:10)",
             spanish: "Aunque se retiren los montes y se muevan las colinas, mi amor inquebrantable no se apartará de ti, ni mi pacto de paz se romperá, dice el Señor, que tiene compasión de ti. (Isaías 54:10)",
+            hindi: "पहाड़ हिल जाएँ और पहाड़ियाँ हट जाएँ, तब भी मेरा अटूट प्रेम तुम्हारे प्रति नहीं हटेगा, न ही मेरा शांति का वाचा टूटेगा, यहोवा जो तुम्हारे प्रति दया रखता है, कहता है। (यशायाह 54:10)",
             "link": "https://www.bible.com/bible/111/ISA.54.10.NIV"
         },
         {
             english: "I will put my law in their minds and write it on their hearts. I will be their God, and they will be my people. (Jeremiah 31:33)",
             telugu: "నేను నా ధర్మశాస్త్రాన్ని వారి మనస్సులో పెట్టి వారి హృదయాలలో వ్రాయుదును; నేను వారి దేవుడనైయుందును, వారు నా ప్రజలు అవుదురు. (యిర్మియా 31:33)",
             spanish: "Pondré mi ley en su mente y la escribiré en su corazón. Yo seré su Dios y ellos serán mi pueblo. (Jeremías 31:33)",
+            hindi: "मैं अपना नियम उनके मन में डालूँगा और उसे उनके हृदय में लिखूँगा। मैं उनका परमेश्वर बनूँगा, और वे मेरी जनता होंगे। (यिर्मयाह 31:33)",
             "link": "https://www.bible.com/bible/111/JER.31.33.NIV"
         },
         {
             english: "Though he may stumble, he will not fall, for the Lord upholds him with his hand. (Psalm 37:24)",
             telugu: "అతడు జారిపడినా, పూర్తిగా పడిపోడు; యెహోవా తన చేతితో అతనిని సంరక్షిస్తాడు. (కీర్తనలు 37:24)",
             spanish: "Aunque tropiece, no caerá, porque el Señor lo sostiene de la mano. (Salmos 37:24)",
+            hindi: "वह गिर सकता है, परन्तु वह नहीं गिरेगा, क्योंकि यहोवा उसे अपने हाथ से थामे हुए है। (भजन संहिता 37:24)",
             "link": "https://www.bible.com/bible/111/PSA.37.24.NIV"
         },
         {
             english: "But he said to me, 'My grace is sufficient for you, for my power is made perfect in weakness.' Therefore I will boast all the more gladly about my weaknesses, so that Christ’s power may rest on me. (2 Corinthians 12:9)",
             telugu: "అయితే ఆయన నాతో ఇలా చెప్పాడు: 'నీకు నా కృప సరిపోతుంది; ఎందుకంటే నా శక్తి దుర్బలతలో సంపూర్ణమగును.' కాబట్టి, నా బలహీనతల విషయంలో నేను మరింత ఆనందంతో గర్విస్తాను, తద్వారా క్రీస్తు శక్తి నాపై నివసించునట్లు. (2 కొరింథీయులకు 12:9)",
             spanish: "Pero él me dijo: 'Te basta con mi gracia, porque mi poder se perfecciona en la debilidad.' Por lo tanto, gustosamente haré alarde de mis debilidades, para que el poder de Cristo repose en mí. (2 Corintios 12:9)",
+            hindi: "परन्तु उसने मुझसे कहा, 'मेरी कृपा तेरे लिए पर्याप्त है, क्योंकि मेरी शक्ति दुर्बलता में पूर्ण होती है।' इसलिए मैं अपनी दुर्बलताओं पर और अधिक प्रसन्नता से घमंड करूँगा, ताकि मसीह की शक्ति मुझ पर ठहर सके। (2 कुरिन्थियों 12:9)",  
             "link": "https://www.bible.com/bible/111/2CO.12.9.NIV"
         }, 
         {
             english: "Cast all your anxiety on him because he cares for you. (1 Peter 5:7)",
             telugu: "మీ చింతలన్నియు ఆయన మీద వేయండి, ఎందుకంటే ఆయన మీకై శ్రద్ధ కలిగి ఉన్నాడు. (1 పేతురు 5:7)",
             spanish: "Depositen en él toda ansiedad, porque él cuida de ustedes. (1 Pedro 5:7)",
+            hindi: "अपनी सारी चिंता उस पर डाल दो, क्योंकि वह तुम्हारी परवाह करता है। (1 पतरस 5:7)",
             "link": "https://www.bible.com/bible/111/1PE.5.7.NIV"
         },
         {
             english: "For the Lord God is a sun and shield; the Lord bestows favor and honor; no good thing does he withhold from those whose walk is blameless. (Psalm 84:11)",
             telugu: "యెహోవా దేవుడు సూర్యుడుగా మరియు కవచముగా ఉన్నాడు; యెహోవా కృపను మరియు గౌరవాన్ని అనుగ్రహించును; నిష్కళంకంగా నడుచుకొనువారికి ఏ మంచి దానినీ ఆయన వెనుకకు తీయడు. (కీర్తనలు 84:11)",
             spanish: "Porque sol y escudo es el Señor Dios; el Señor concede favor y gloria; no niega ningún bien a los que andan en integridad. (Salmos 84:11)",
+            hindi: "क्योंकि यहोवा परमेश्वर सूर्य और ढाल है; यहोवा अनुग्रह और सम्मान प्रदान करता है; जो निर्दोषता से चलता है, उससे वह कोई भी भला वस्तु नहीं रोकता। (भजन संहिता 84:11)",
             "link": "https://www.bible.com/bible/111/PSA.84.11.NIV"
         },
         {
             english: "Though the mountains be shaken and the hills be removed, yet my unfailing love for you will not be shaken nor my covenant of peace be removed, says the Lord, who has compassion on you. (Isaiah 54:10)",
             telugu: "పర్వతాలు కదలబడినా, కొండలు తొలగిపోయినా, నా ప్రేమ నీపై నుండి తొలగిపోదు; నా శాంతి నిబంధన కూడా కదలిపోదు, అనేది నీపై కరుణ కలిగించువాడైన యెహోవా వాక్కు. (యెషయా 54:10)",
             spanish: "Aunque se retiren los montes y se muevan las colinas, mi amor inquebrantable no se apartará de ti, ni mi pacto de paz se romperá, dice el Señor, que tiene compasión de ti. (Isaías 54:10)",
+            hindi: "पहाड़ हिल जाएँ और पहाड़ियाँ हट जाएँ, तब भी मेरा अटूट प्रेम तुम्हारे प्रति नहीं हटेगा, न ही मेरा शांति का वाचा टूटेगा, यहोवा जो तुम्हारे प्रति दया रखता है, कहता है। (यशायाह 54:10)",
             "link": "https://www.bible.com/bible/111/ISA.54.10.NIV"
         },
         {
             english: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose. (Romans 8:28)",
             telugu: "దేవుడు తనను ప్రేమించువారికోసం మరియు తన సంకల్పం ప్రకారము పిలువబడినవారికోసం ప్రతి విషయంలోనూ మంచి కొరకు కార్యసాధన చేస్తాడని మేము తెలుసుకున్నాము. (రోమా 8:28)",
             spanish: "Sabemos que en todas las cosas Dios trabaja para el bien de quienes lo aman, los que han sido llamados conforme a su propósito. (Romanos 8:28)",
+            hindi: "और हम जानते हैं कि हर बात में परमेश्वर उन लोगों के लिए भला करता है जो उससे प्रेम करते हैं, जो उसकी योजना के अनुसार बुलाए गए हैं। (रोमियों 8:28)",
             "link": "https://www.bible.com/bible/111/ROM.8.28.NIV"
         },
         {
             english: "You will keep in perfect peace those whose minds are steadfast, because they trust in you. (Isaiah 26:3)",
             telugu: "నీ మీద స్థిరమైన విశ్వాసముగల వారి మనస్సులను నీవు సంపూర్ణమైన శాంతిలో నిలుపుదువు, ఎందుకంటే వారు నిన్ను విశ్వసిస్తారు. (యెషయా 26:3)",
             spanish: "Tú guardarás en completa paz a aquel cuyo pensamiento en ti persevera, porque en ti ha confiado. (Isaías 26:3)",
+            hindi: "तू पूर्ण शांति में रखेगा उन लोगों को जिनका मन स्थिर है, क्योंकि वे तुझ पर भरोसा करते हैं। (यशायाह 26:3)",
             "link": "https://www.bible.com/bible/111/ISA.26.3.NIV"
         },
         {
             english: "Therefore, there is now no condemnation for those who are in Christ Jesus. (Romans 8:1)",
             telugu: "కాబట్టి క్రీస్తు యేసునందు ఉన్నవారికి ఇకపై నేరముండదు. (రోమా 8:1)",
             spanish: "Por lo tanto, ya no hay ninguna condenación para los que están en Cristo Jesús. (Romanos 8:1)",
+            hindi: "इसलिये अब मसीह यीशु में होने वालों के लिए कोई निन्दा नहीं है। (रोमियों 8:1)",
             "link": "https://www.bible.com/bible/111/ROM.8.1.NIV"
         },
         {
             english: "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus. (Philippians 4:6-7)",
             telugu: "ఎటువంటి విషయమునందు నీరాశ పడవద్దు, కానీ ప్రతి పరిస్థితిలో, ప్రార్థనతో మరియు విజ్ఞాపనలతో, కృతజ్ఞతలతో, మీ కోరికలను దేవునికి తెలియజేయండి. మరియు అన్ని అవగాహనలను మించిపోయే దేవుని శాంతి, క్రీస్తు యేసునందు మీ హృదయాలను మరియు మనస్సులను కాపాడుతుంది. (ఫిలిప్పీయులకు 4:6-7)",
             spanish: "No se inquieten por nada; más bien, en toda ocasión, con oración y ruego, presenten sus peticiones a Dios y denle gracias. Y la paz de Dios, que sobrepasa todo entendimiento, cuidará sus corazones y sus pensamientos en Cristo Jesús. (Filipenses 4:6-7)",
+            hindi: "किसी भी बात की चिंता मत करो, बल्कि हर परिस्थिति में प्रार्थना और याचना के द्वारा, धन्यवाद के साथ, अपनी आवश्यकताओं को परमेश्वर के सामने प्रस्तुत करो। और परमेश्वर की शांति, जो सभी समझ से परे है, तुम्हारे हृदयों और तुम्हारे विचारों को मसीह यीशु में सुरक्षित रखेगी। (फिलिप्पियों 4:6-7)",
             "link": "https://www.bible.com/bible/111/PHP.4.6-7.NIV"
         },
         {
             english: "From the ends of the earth I call to you, I call as my heart grows faint; lead me to the rock that is higher than I. (Psalm 61:2)",
             telugu: "భూమి చివరలనుండి నేను నీకు మొరపెట్టుకొనుచున్నాను; నా హృదయం అదుపు తప్పినపుడు, నన్ను నాకన్నా ఎత్తైన గుట్టపైనికి నడిపించు. (కీర్తనలు 61:2)",
             spanish: "Desde los confines de la tierra clamo a ti, porque mi corazón desfallece. Llévame a la roca que es más alta que yo. (Salmos 61:2)",
+            hindi: "मैं पृथ्वी के छोरों से तुझसे पुकारता हूँ, क्योंकि मेरा हृदय कमजोर हो गया है; मुझे उस चट्टान पर ले चल जो मुझसे ऊँची है। (भजन संहिता 61:2)",
             "link": "https://www.bible.com/bible/111/PSA.61.2.NIV"
         },
         {
             english: "But he knows the way that I take; when he has tested me, I will come forth as gold. (Job 23:10)",
             telugu: "అయితే నేను పయనించుచున్న మార్గము ఆయనకు తెలిసియున్నది; ఆయన నన్ను పరీక్షించినప్పుడు, నేను బంగారముగా బయలుపడెదను. (యోబు 23:10)",
             spanish: "Pero él conoce mi camino; si me prueba, saldré como el oro. (Job 23:10)",
+            hindi: "परन्तु वह मेरे मार्ग को जानता है; जब वह मुझे परखता है, तो मैं सोने के समान निकलूँगा। (यूब 23:10)",
             "link": "https://www.bible.com/bible/111/JOB.23.10.NIV"
         },
         {
             english: "I have told you these things, so that in me you may have peace. In this world you will have trouble. But take heart! I have overcome the world. (John 16:33)",
             telugu: "మీరు నా యందు శాంతిని కలిగి ఉండునట్లు, ఈ విషయాలను నేను మీకు చెప్పాను. ఈ లోకములో మీకు ఇబ్బందులు ఉంటాయి. కానీ ధైర్యంగా ఉండండి! నేను లోకాన్ని జయించాను. (యోహాను 16:33)",
             spanish: "Les he dicho estas cosas para que en mí tengan paz. En este mundo afrontarán aflicciones, pero ¡anímense! Yo he vencido al mundo. (Juan 16:33)",
+            hindi: "मैंने ये बातें तुम्हें इसलिए बताई हैं ताकि तुम मुझमें शांति पाओ। इस संसार में तुम्हें संकट होगा; पर धैर्य रखो! मैंने संसार पर विजय प्राप्त की है। (यूहन्ना 16:33)",
             "link": "https://www.bible.com/bible/111/JHN.16.33.NIV"
         },
         {
             english: "See, I am doing a new thing! Now it springs up; do you not perceive it? I am making a way in the wilderness and streams in the wasteland. (Isaiah 43:19)",
             telugu: "చూడండి, నేను కొత్త విషయమును చేసుచున్నాను! అది ఇప్పుడే పుట్టుకొస్తోంది; మీరు దీన్ని గ్రహించలేరా? నేను అరణ్యములో మార్గమును, ఎడారిలో నదులును చేయుచున్నాను. (యెషయా 43:19)",
             spanish: "¡Miren que estoy por hacer algo nuevo! Ya está sucediendo, ¿no se dan cuenta? Estoy abriendo un camino en el desierto y ríos en lugares desolados. (Isaías 43:19)",
+            hindi: "देखो, मैं एक नई बात कर रहा हूँ! अब वह प्रकट हो रही है; क्या तुम इसे नहीं समझते? मैं रेगिस्तान में एक मार्ग बना रहा हूँ और वीरान स्थानों में नदियाँ। (यशायाह 43:19)",
             "link": "https://www.bible.com/bible/111/ISA.43.19.NIV"
         },
         {
             english: "The Lord himself goes before you and will be with you; he will never leave you nor forsake you. Do not be afraid; do not be discouraged. (Deuteronomy 31:8)",
             telugu: "యెహోవా తానే మీ ముందుగా వెళ్లుచున్నాడు, ఆయన మీతో ఉండును; ఆయన మిమ్మల్ని విడువడనుగానీ, త్యజించడనుగానీ చేయడు. భయపడకుడి, నిరుత్సాహ పడకుడి. (ద్వితీయోపదేశకాండము 31:8)",
             spanish: "El Señor mismo irá delante de ti y estará contigo; nunca te dejará ni te abandonará. No temas ni te desanimes. (Deuteronomio 31:8)",
+            hindi: "यहोवा स्वयं तुम्हारे आगे जाएगा और तुम्हारे साथ रहेगा; वह कभी तुम्हें नहीं छोड़ेगा और न ही तुम्हें परित्याग करेगा। डर मत और हतोत्साहित मत हो। (व्यवस्थाविवरण 31:8)",
             "link": "https://www.bible.com/bible/111/DEU.31.8.NIV"
         },
         {
             english: "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. (Matthew 7:7)",
             telugu: "ఆడండి, మీకు ఇవ్వబడును; వెదకండి, మీరు పొందుతారు; తట్టండి, మీకు తలుపు తీయబడును. (మత్తయి 7:7)",
             spanish: "Pidan, y se les dará; busquen, y encontrarán; llamen, y se les abrirá la puerta. (Mateo 7:7)",
+            hindi: "मांगो और तुम्हें दिया जाएगा; खोजो और तुम पाओगे; खटखटाओ और तुम्हारे लिए दरवाज़ा खोला जाएगा। (मत्ती 7:7)",
             "link": "https://www.bible.com/bible/111/MAT.7.7.NIV"
         },
         {
             english: "Because of the Lord’s great love we are not consumed, for his compassions never fail. They are new every morning; great is your faithfulness. (Lamentations 3:22-23)",
             telugu: "యెహోవా గొప్ప ప్రేమచేతనై, మేము వినాశనమునకు గురి కాకున్నాము; ఆయన కరుణలు ఎప్పుడూ వ్యర్థమవు. ప్రతి ఉదయమునవి నూతనమవుతున్నవి; మీ విశ్వాసం గొప్పది. (విలాపవాక్యములు 3:22-23)",
             spanish: "Por el gran amor del Señor no somos consumidos, porque jamás decaen sus misericordias. Cada mañana se renuevan; ¡grande es tu fidelidad! (Lamentaciones 3:22-23)",
+            hindi: "यहोवा के महान प्रेम के कारण हम नष्ट नहीं हुए, क्योंकि उसकी दया कभी समाप्त नहीं होती। वे हर सुबह नये होते हैं; तेरी निष्ठा बड़ी है। (विलापगीत 3:22-23)",
             "link": "https://www.bible.com/bible/111/LAM.3.22-23.NIV"
         },
         {
             english: "You will keep in perfect peace those whose minds are steadfast, because they trust in you. (Isaiah 26:3)",
             telugu: "నీ మీద స్థిరమైన విశ్వాసముగల వారి మనస్సులను నీవు సంపూర్ణమైన శాంతిలో నిలుపుదువు, ఎందుకంటే వారు నిన్ను విశ్వసిస్తారు. (యెషయా 26:3)",
             spanish: "Tú guardarás en completa paz a aquel cuyo pensamiento en ti persevera, porque en ti ha confiado. (Isaías 26:3)",
+            hindi: "तू पूर्ण शांति में रखेगा उन लोगों को जिनका मन स्थिर है, क्योंकि वे तुझ पर भरोसा करते हैं। (यशायाह 26:3)",
             "link": "https://www.bible.com/bible/111/ISA.26.3.NIV"
         },
         {
             english: "May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit. (Romans 15:13)",
             telugu: "ఆశయుక్తుడైన దేవుడు, మీరు ఆయనమీద విశ్వసించుచుండగా, పరిశుద్ధాత్మ శక్తిచేత ఆశతో నిండియుండునట్లు, మీరు సమస్త ఆనందమును మరియు శాంతిని అనుభవించునట్లు చేయవలెనని నేను ప్రార్థించుచున్నాను. (రోమా 15:13)",
             spanish: "Que el Dios de la esperanza los llene de toda alegría y paz mientras confían en él, para que rebosen de esperanza por el poder del Espíritu Santo. (Romanos 15:13)",
+            hindi: "आशा के परमेश्वर आपको पूरी खुशी और शांति से भर दे, ताकि आप उस पर भरोसा करते हुए पवित्र आत्मा की शक्ति से आशा में प्रफुल्लित हो सकें। (रोमियों 15:13)",
             "link": "https://www.bible.com/bible/111/ROM.15.13.NIV"
         },
         {
             english: "Be on your guard; stand firm in the faith; be courageous; be strong. Do everything in love. (1 Corinthians 16:13-14)",
             telugu: "జాగ్రత్తగా ఉండుడి; విశ్వాసములో స్థిరపడుడి; ధైర్యంగాను బలంగా ఉండుడి. మీ చేయు పనులన్నీ ప్రేమతో చేయుడి. (1 కొరింథీయులకు 16:13-14)",
             spanish: "Manténganse alerta, permanezcan firmes en la fe, sean valientes, sean fuertes. Hagan todo con amor. (1 Corintios 16:13-14)",
+            hindi: "सावधान रहो; विश्वास में दृढ़ रहो; साहसी बनो; मजबूत बनो। सब कुछ प्रेम से करो। (1 कुरिन्थियों 16:13-14)",
             "link": "https://www.bible.com/bible/111/1CO.16.13-14.NIV"
         },
         {
             english: "Surely God is my salvation; I will trust and not be afraid. The Lord, the Lord himself, is my strength and my defense; he has become my salvation. (Isaiah 12:2)",
             telugu: "నిశ్చయంగా దేవుడే నా రక్షకుడు; నేను ఆయన మీద నమ్మకముంచి భయపడను. యెహోవా, ఆయన తానే నా బలం, నా రక్షణ; ఆయన నాకు రక్షణగా మారాడు. (యెషయా 12:2)",
             spanish: "Dios es mi salvación; confiaré y no temeré. El Señor, el Señor mismo, es mi fuerza y mi defensa; él se ha convertido en mi salvación. (Isaías 12:2)",
+            hindi: "निश्चय ही परमेश्वर मेरा उद्धार है; मैं उस पर भरोसा करूँगा और भयभीत नहीं होऊँगा। यहोवा, यहोवा स्वयं मेरी शक्ति और मेरी रक्षा है; वह मेरा उद्धार बन गया है। (यशायाह 12:2)",
             "link": "https://www.bible.com/bible/111/ISA.12.2.NIV"
         },
         {
             english: "I have told you these things, so that in me you may have peace. In this world you will have trouble. But take heart! I have overcome the world. (John 16:33)",
             telugu: "మీరు నా యందు శాంతిని కలిగి ఉండునట్లు, ఈ విషయాలను నేను మీకు చెప్పాను. ఈ లోకములో మీకు ఇబ్బందులు ఉంటాయి. కానీ ధైర్యంగా ఉండండి! నేను లోకాన్ని జయించాను. (యోహాను 16:33)",
             spanish: "Les he dicho estas cosas para que en mí tengan paz. En este mundo afrontarán aflicciones, pero ¡anímense! Yo he vencido al mundo. (Juan 16:33)",
+            hindi: "मैंने ये बातें तुम्हें इसलिए बताई हैं ताकि तुम मुझमें शांति पाओ। इस संसार में तुम्हें संकट होगा; पर धैर्य रखो! मैंने संसार पर विजय प्राप्त की है। (यूहन्ना 16:33)",
             "link": "https://www.bible.com/bible/111/JHN.16.33.NIV"
         },
         {
             english: "Jesus looked at them and said, 'With man this is impossible, but not with God; all things are possible with God.' (Mark 10:27)",
             telugu: "యేసు వారిని చూచివ్రేలాడు: 'మనుష్యులచేత ఇది అసాధ్యమై ఉండును, కానీ దేవుని చేత సాధ్యమే; ఎందుకంటే దేవునిచేత అన్నియు సాధ్యమే.' (మార్కు 10:27)",
             spanish: "Jesús los miró y les dijo: 'Para los hombres es imposible, pero no para Dios; de hecho, para Dios todo es posible.' (Marcos 10:27)",
+            hindi: "यीशु ने उन्हें देखा और कहा, 'मनुष्यों के लिए यह असंभव है, परन्तु परमेश्वर के लिए नहीं; क्योंकि परमेश्वर के लिए सब कुछ संभव है।' (मरकुस 10:27)",
             "link": "https://www.bible.com/bible/111/MRK.10.27.NIV"
         },
         {
             english: "Have I not commanded you? Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go. (Joshua 1:9)",
             telugu: "నేను నీకు ఆజ్ఞాపించిన మాట ఏమిటి? ధైర్యంగా మరియు బలంగా ఉండుము. భయపడవద్దు, నిరుత్సాహపడవద్దు; ఎందుకంటే నీ దేవుడైన యెహోవా నీవు వెళ్ళిన ప్రతి చోట నాతో ఉండును. (యెహోషువ 1:9)",
             spanish: "Ya te lo he ordenado: ¡Sé fuerte y valiente! No tengas miedo ni te desanimes, porque el Señor tu Dios te acompañará dondequiera que vayas. (Josué 1:9)",
+            hindi: "क्या मैंने तुझसे आज्ञा नहीं दी है? मजबूत और साहसी बनो। डर मत और हतोत्साहित मत हो, क्योंकि तेरे परमेश्वर यहोवा जहाँ कहीं भी तू जाएगा, तेरे साथ रहेगा। (यहोशू 1:9)",
             "link": "https://www.bible.com/bible/111/JOS.1.9.NIV"
         },
         {
             english: "I love you, Lord, my strength. The Lord is my rock, my fortress, and my deliverer; my God is my rock, in whom I take refuge, my shield and the horn of my salvation, my stronghold. (Psalm 18:1-2)",
             telugu: "యెహోవా, నా బలమా, నేను నిన్ను ప్రేమిస్తున్నాను. యెహోవా నా దొడ్డీ, నా కోట, నా విమోచకుడు; నా దేవుడు నా ఆశ్రయం, నా గోటి, నా రక్షణకొరకు కొమ్ము మరియు నా రక్షణ స్థలం. (కీర్తనలు 18:1-2)",
             spanish: "Te amo, Señor, fortaleza mía. El Señor es mi roca, mi amparo, mi libertador; es mi Dios, el peñasco en que me refugio. Es mi escudo, el poder que me salva, mi más alto escondite. (Salmos 18:1-2)",
+            hindi: "हे यहोवा, मेरी शक्ति, मैं तुझसे प्रेम करता हूँ। यहोवा मेरा चट्टान, मेरा किला और मेरा उद्धारकर्ता है; मेरा परमेश्वर मेरा आश्रय है, मेरी ढाल और मेरी मुक्ति का सींग, मेरी मजबूत जगह है। (भजन संहिता 18:1-2)",
             "link": "https://www.bible.com/bible/111/PSA.18.1-2.NIV"
         },
         {
             english: "God is our refuge and strength, an ever-present help in trouble. (Psalm 46:1)",
             telugu: "దేవుడు మన ఆశ్రయం మరియు బలం; కష్టకాలములలో నిత్య సహాయకుడు. (కీర్తనలు 46:1)",
             spanish: "Dios es nuestro amparo y nuestra fortaleza, nuestra ayuda segura en momentos de angustia. (Salmos 46:1)",
+            hindi: "परमेश्वर हमारा आश्रय और शक्ति है, संकट में एक बहुत ही सहायक सहायता। (भजन संहिता 46:1)",
             "link": "https://www.bible.com/bible/111/PSA.46.1.NIV"
         },
         {
             english: "My flesh and my heart may fail, but God is the strength of my heart and my portion forever. (Psalm 73:26)",
             telugu: "నా శరీరం మరియు నా హృదయం బలహీనమైయున్నాయి, కానీ దేవుడు నా హృదయానికి బలం మరియు నిత్యమునకు నా స్వాస్థ్యం. (కీర్తనలు 73:26)",
             spanish: "Podrán desfallecer mi cuerpo y mi espíritu, pero Dios fortalece mi corazón; él es mi herencia eterna. (Salmos 73:26)",
+            hindi: "मेरी देह और मेरा हृदय कमजोर हो सकते हैं, परन्तु परमेश्वर मेरा हृदय की शक्ति है और मेरी भागीदारी सदा के लिए है। (भजन संहिता 73:26)",
             "link": "https://www.bible.com/bible/111/PSA.73.26.NIV"
         },
         {
             english: "The Lord will keep you from all harm—he will watch over your life; the Lord will watch over your coming and going both now and forevermore. (Psalm 121:7-8)",
             telugu: "యెహోవా నిన్ను సమస్త అపాయముల నుండి కాపాడును—ఆయన నీ జీవనాన్ని సంరక్షించును; యెహోవా నీ వచ్చు పోవును ఇప్పుడు మరియు నిత్యమునకు కాపాడును. (కీర్తనలు 121:7-8)",
             spanish: "El Señor te protegerá; de todo mal protegerá tu vida. El Señor cuidará tu salida y tu entrada desde ahora y para siempre. (Salmos 121:7-8)",
+            hindi: "यहोवा तुम्हें हर बुराई से बचाएगा—वह तुम्हारे जीवन की रक्षा करेगा; यहोवा तुम्हारे आने और जाने की देखभाल करेगा, अब और सदा के लिए। (भजन संहिता 121:7-8)",
             "link": "https://www.bible.com/bible/111/PSA.121.7-8.NIV"
         },
         {
             english: "May he give you the desire of your heart and make all your plans succeed. (Psalm 20:4)",
             telugu: "ఆయన నీ హృదయమనోరథములను నెరవేర్చునుగాక మరియు నీ ఆలోచనలను విజయవంతం చేయునుగాక. (కీర్తనలు 20:4)",
             spanish: "Que te conceda lo que tu corazón desea; que haga que todos tus planes tengan éxito. (Salmos 20:4)",
+            hindi: "वह तुम्हारे हृदय की इच्छा पूरी करे और तुम्हारे सभी योजनाओं को सफल बनाए। (भजन संहिता 20:4)",
             "link": "https://www.bible.com/bible/111/PSA.20.4.NIV"
         },
         {
             english: "Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid. (John 14:27)",
             telugu: "శాంతిని నేను మీతో విడిచిపెట్టుచున్నాను; నా శాంతిని మీకు ఇస్తున్నాను. లోకము ఇచ్చినట్లు నేను మీకు ఇవ్వడం లేదు. మీ హృదయములు troubled ఉండకూడదు, భయపడకూడదు. (యోహాను 14:27)",
             spanish: "La paz les dejo; mi paz les doy. Yo no se la doy a ustedes como la da el mundo. No se angustien ni se acobarden. (Juan 14:27)",
+            hindi: "मैं तुम्हें शांति देता हूँ; मेरी शांति तुम्हें देता हूँ। मैं तुम्हें वैसे नहीं देता जैसे संसार देता है। तुम्हारे हृदय परेशान न हों और न ही तुम डरो। (यूहन्ना 14:27)",
             "link": "https://www.bible.com/bible/111/JHN.14.27.NIV"
         },
         {
             english: "Even though I walk through the darkest valley, I will fear no evil, for you are with me; your rod and your staff, they comfort me. (Psalm 23:4)",
             telugu: "యధాపి చీకటి లోయలోనుంచే నేను నడిచిన, నేనెవినీ భయపడను, ఎందుకంటే నీవు నాతో ఉన్నావు; నీ దండము మరియు నీ స్తంభము నాకు ఆత్మాశాంతి కలిగించును. (కీర్తనలు 23:4)",
             spanish: "Aun si voy por valles tenebrosos, no temo peligro alguno porque tú estás a mi lado; tu vara de pastor me reconforta. (Salmos 23:4)",
+            hindi: "भले ही मैं सबसे अंधेरे घाटी से गुजरूँ, मैं किसी बुराई से नहीं डरूँगा, क्योंकि तू मेरे साथ है; तेरी छड़ी और तेरी लाठी मुझे सांत्वना देती हैं। (भजन संहिता 23:4)",
             "link": "https://www.bible.com/bible/111/PSA.23.4.NIV"
         },
         {
             english: "Cast your cares on the Lord and he will sustain you; he will never let the righteous be shaken. (Psalm 55:22)",
             telugu: "నీ భారాన్ని యెహోవాపై వేయుము మరియు ఆయన నిన్ను నిలువచేయును; నీతిమంతులను ఎప్పటికీ కదిలించనీయడు. (కీర్తనలు 55:22)",
             spanish: "Confía tus cargas al Señor, y él te sostendrá; no permitirá que el justo caiga y quede abatido para siempre. (Salmos 55:22)",
+            hindi: "अपने बोझों को यहोवा पर डालो, और वह तुम्हें सहारा देगा; वह धर्मी को कभी हिलने नहीं देगा। (भजन संहिता 55:22)",
             "link": "https://www.bible.com/bible/111/PSA.55.22.NIV"
         },
         {
             english: "Do not conform to the pattern of this world, but be transformed by the renewing of your mind. Then you will be able to test and approve what God’s will is—his good, pleasing and perfect will. (Romans 12:2)",
             telugu: "ఈ లోకపు రూపమును అనుకరించకండి, కానీ మీ మనస్సు పునరుద్ధరించుట ద్వారా మార్పుచెందండి. అప్పుడు దేవుని చిత్తమేమిటో—అది మంచి, ప్రీతిపాత్రమైనది, సంపూర్ణమైనదని మీరు తెలిసికొనగలుగుతారు. (రోమా 12:2)",
             spanish: "No se amolden al mundo actual, sino sean transformados mediante la renovación de su mente. Así podrán comprobar cuál es la voluntad de Dios, buena, agradable y perfecta. (Romanos 12:2)",
+            hindi: "इस संसार के ढांचे के अनुसार न बनो, बल्कि अपने मन को नवीनीकृत करके रूपांतरित हो जाओ। तब तुम यह जान सकोगे कि परमेश्वर की इच्छा क्या है—वह अच्छी, प्रसन्न करने वाली और पूर्ण इच्छा है। (रोमियों 12:2)",
             "link": "https://www.bible.com/bible/111/ROM.12.2.NIV"
         },
         {
             english: "The Lord is near to all who call on him, to all who call on him in truth. He fulfills the desires of those who fear him; he hears their cry and saves them. (Psalm 145:18-19)",
             telugu: "యెహోవా, తనను నిజముగా పిలుచుకొను వారందరికీ సమీపముగా ఉన్నాడు. ఆయనను భయపడువారి మనోరథములను నెరవేర్చును; వారి ప్రణాళికలను వినుచు, వారిని రక్షించును. (కీర్తనలు 145:18-19)",
             spanish: "El Señor está cerca de quienes lo invocan, de quienes lo invocan en verdad. Cumple los deseos de quienes le temen; escucha su clamor y los salva. (Salmos 145:18-19)",
+            hindi: "यहोवा उन सभी के निकट है जो उससे पुकारते हैं, जो सच्चाई में उससे पुकारते हैं। वह उन लोगों की इच्छाओं को पूरा करता है जो उससे डरते हैं; वह उनकी पुकार सुनता है और उन्हें बचाता है। (भजन संहिता 145:18-19)",
             "link": "https://www.bible.com/bible/111/PSA.145.18-19.NIV"
         },
         {
             english: "Are not two sparrows sold for a penny? Yet not one of them will fall to the ground outside your Father’s care. And even the very hairs of your head are all numbered. So don’t be afraid; you are worth more than many sparrows. (Matthew 10:29-31)",
             telugu: "రెండు గీతపిట్టలు ఒక పావలా ధరకు అమ్మబడతావు కదా? అయితే మీ తండ్రి జ్ఞానానికి వెలుపల వాటిలో ఒకటి కూడా నేలపై పడదు. మీ తలపైని వెంట్రుకల సంఖ్య కూడా లెక్కించబడింది. కాబట్టి భయపడవద్దు; మీరు అనేక గీతపిట్టలకు మించినవారు. (మత్తయి 10:29-31)",
             spanish: "¿No se venden dos gorriones por una monedita? Sin embargo, ni uno de ellos caerá a tierra sin que lo permita el Padre, y él les tiene contados a ustedes aun los cabellos de la cabeza. Así que no tengan miedo; ustedes valen más que muchos gorriones. (Mateo 10:29-31)",
+            hindi: "क्या दो गौरैया एक पैसे में नहीं बिकतीं? फिर भी तुम्हारे पिता की देखभाल के बिना उनमें से एक भी जमीन पर नहीं गिरेगा। और तुम्हारे सिर के बाल भी सब गिने हुए हैं। इसलिए डर मत; तुम कई गौरैयों से अधिक मूल्यवान हो। (मत्ती 10:29-31)",
             "link": "https://www.bible.com/bible/111/MAT.10.29-31.NIV"
         },
         {
             english: "Being strengthened with all power according to his glorious might so that you may have great endurance and patience. (Colossians 1:11)",
             telugu: "ఆయన మహిమకలిగిన శక్తి ప్రకారం అన్ని శక్తిలో మీరు బలపరచబడి, మహోన్నతమైన సహనము మరియు దైర్యము కలిగి ఉండుడి. (కొలస్సీయులకు 1:11)",
             spanish: "Que sean fortalecidos en todo sentido con su glorioso poder, para que perseveren con paciencia en toda situación. (Colosenses 1:11)",
+            hindi: "उनकी महिमामय शक्ति के अनुसार पूरी शक्ति से सशक्त होकर, ताकि आप धैर्य और सहनशीलता में समृद्ध हों। (कुलुस्सियों 1:11)",
             "link": "https://www.bible.com/bible/111/COL.1.11.NIV"
         },
         {
             english: "For the Spirit God gave us does not make us timid, but gives us power, love, and self-discipline. (2 Timothy 1:7)",
             telugu: "దేవుడు మనకు భయపడే ఆత్మను ఇవ్వలేదు; కానీ శక్తి, ప్రేమ, మరియు ఆత్మ నియంత్రణ ఆత్మను ఇచ్చాడు. (2 తిమోతికి 1:7)",
             spanish: "Porque el Espíritu que Dios nos ha dado no nos hace cobardes, sino que nos da poder, amor y dominio propio. (2 Timoteo 1:7)",
+            hindi: "क्योंकि परमेश्वर ने हमें भयभीत करने वाली आत्मा नहीं दी, बल्कि शक्ति, प्रेम और आत्म-नियंत्रण की आत्मा दी है। (2 तीमुथियुस 1:7)",
             "link": "https://www.bible.com/bible/111/2TI.1.7.NIV"
         },
         {
             english: "You are my hiding place; you will protect me from trouble and surround me with songs of deliverance. I will instruct you and teach you in the way you should go; I will counsel you with my loving eye on you. (Psalm 32:7-8)",
             telugu: "నీవు నా దాచుబడి స్థలం; నన్ను కష్టకాలముల నుండి కాపాడుచు, విముక్తి గీతములతో నన్ను చుట్టుముట్టుదువు. నేను నీకు ఉపదేశించుచు, నీవు నడుచుటకు తగిన మార్గమును నేర్పుదును; నా కరుణమయమైన చూపుతో నీకు సలహా ఇస్తాను. (కీర్తనలు 32:7-8)",
             spanish: "Tú eres mi refugio; me protegerás del peligro y me rodearás con cánticos de liberación. Yo te instruiré, yo te mostraré el camino que debes seguir; yo te daré consejos y velaré por ti. (Salmos 32:7-8)",
+            hindi: "तू मेरा छिपने का स्थान है; तू मुझे संकट से बचाएगा और मुक्ति के गीतों से मुझे घेर लेगा। मैं तुझे उपदेश दूँगा और तुझे उस मार्ग पर चलना सिखाऊँगा जिस पर तुझे चलना चाहिए; मैं तुझ पर अपनी दयालु दृष्टि रखकर तुझे सलाह दूँगा। (भजन संहिता 32:7-8)",
             "link": "https://www.bible.com/bible/111/PSA.32.7-8.NIV"
         },
         {
             english: "I love the Lord, for he heard my voice; he heard my cry for mercy. Because he turned his ear to me, I will call on him as long as I live. (Psalm 116:1-2)",
             telugu: "యెహోవా నా వాక్కు వినినందున, నా క్షమాభిక్ష ప్రార్థనను ఆలకించినందున నేను ఆయనను ప్రేమించుచున్నాను. నా జీవితమంతటా నేను ఆయనను పిలుస్తాను. (కీర్తనలు 116:1-2)",
             spanish: "Amo al Señor porque él escucha mi voz suplicante. Por cuanto él inclina su oído hacia mí, lo invocaré toda mi vida. (Salmos 116:1-2)",
+            hindi: "मैं यहोवा से प्रेम करता हूँ, क्योंकि उसने मेरी विनती सुनी; उसने मेरी दया के लिए मेरी पुकार सुनी। क्योंकि उसने अपना कान मेरी ओर झुका लिया है, मैं अपने जीवन भर उसे पुकारूँगा। (भजन संहिता 116:1-2)",
             "link": "https://www.bible.com/bible/111/PSA.116.1-2.NIV"
         },
         {
             english: "And hope does not put us to shame, because God’s love has been poured out into our hearts through the Holy Spirit, who has been given to us. (Romans 5:5)",
             telugu: "ఆశ మనలను నిరాశచేయదు, ఎందుకంటే దేవుని ప్రేమ పరిశుద్ధాత్మ ద్వారా మన హృదయాలలో పోసబడింది. (రోమా 5:5)",
             spanish: "Y esta esperanza no nos defrauda, porque Dios ha derramado su amor en nuestro corazón por el Espíritu Santo que nos ha dado. (Romanos 5:5)",
+            hindi: "और आशा हमें लज्जित नहीं करती, क्योंकि परमेश्वर का प्रेम पवित्र आत्मा के द्वारा हमारे दिलों में डाला गया है, जो हमें दिया गया है। (रोमियों 5:5)",
             "link": "https://www.bible.com/bible/111/ROM.5.5.NIV"
         },
         {
             english: "He says, 'Be still, and know that I am God; I will be exalted among the nations, I will be exalted in the earth.' (Psalm 46:10)",
             telugu: "అతడు చెబుతాడు: 'నిశ్చలంగా ఉండుడి, నేను దేవుడనని తెలిసికొందురు; జనముల మధ్య నేను మహిమ పొందుదును, భూమిపై నేను పరాక్రమశాలి కీర్తింపబడుదును.' (కీర్తనలు 46:10)",
             spanish: "Quédense quietos, reconozcan que yo soy Dios. ¡Yo seré exaltado entre las naciones! ¡Yo seré enaltecido en la tierra! (Salmos 46:10)",
+            hindi: "वह कहता है, 'शांत हो जाओ, और जान लो कि मैं परमेश्वर हूँ; मैं जातियों के बीच महान हो जाऊँगा, मैं पृथ्वी पर महान हो जाऊँगा।' (भजन संहिता 46:10)",
             "link": "https://www.bible.com/bible/111/PSA.46.10.NIV"
         },
         {
             english: "Truly my soul finds rest in God; my salvation comes from him. Truly he is my rock and my salvation; he is my fortress, I will never be shaken. (Psalm 62:1-2)",
             telugu: "నిజంగా నా ఆత్మ దేవునిలో విశ్రాంతి పొందుచున్నది; నా రక్షణ ఆయన నుండే వచ్చుచున్నది. నిజంగా ఆయన నా గోటి, నా రక్షణ, నా కోట; నేను ఎప్పుడూ కదిలిపోను. (కీర్తనలు 62:1-2)",
             spanish: "En Dios solo halla descanso mi alma; de él viene mi salvación. Solo él es mi roca y mi salvación; él es mi protector. ¡Jamás habré de caer! (Salmos 62:1-2)",
+            hindi: "निश्चय ही मेरी आत्मा परमेश्वर में विश्राम पाती है; मेरा उद्धार उसी से आता है। निश्चय ही वह मेरा चट्टान और मेरा उद्धारकर्ता है; वह मेरा किला है, मैं कभी हिलूँगा नहीं। (भजन संहिता 62:1-2)",
             "link": "https://www.bible.com/bible/111/PSA.62.1-2.NIV"
         },
         {
             english: "Until now you have not asked for anything in my name. Ask and you will receive, and your joy will be complete. (John 16:24)",
             telugu: "ఇప్పటివరకు మీరు నా పేరులో ఏదియు అడగలేదు. అడుగండి, మీకుదగును, తద్వారా మీ ఆనందము సంపూర్ణమగును. (యోహాను 16:24)",
             spanish: "Hasta ahora no han pedido nada en mi nombre. Pidan y recibirán, para que su alegría sea completa. (Juan 16:24)",
+            hindi: "अब तक तुमने मेरे नाम पर कुछ भी नहीं माँगा है। माँगो और तुम पाओगे, और तुम्हारी खुशी पूरी होगी। (यूहन्ना 16:24)",
             "link": "https://www.bible.com/bible/111/JHN.16.24.NIV"
         },
         {
             english: "The Lord is a refuge for the oppressed, a stronghold in times of trouble. Those who know your name trust in you, for you, Lord, have never forsaken those who seek you. (Psalm 9:9-10)",
             telugu: "యెహోవా, నలుగువారి కొరకు ఆశ్రయము, కష్టకాలములలో కోట. నీ నామమును తెలిసినవారు నిన్ను విశ్వసిస్తారు; ఎందుకంటే నిన్ను వెదకిన వారిని యెహోవా, నీవు ఎన్నడూ విడిచిపెట్టలేదు. (కీర్తనలు 9:9-10)",
             spanish: "El Señor es refugio de los oprimidos; es su baluarte en momentos de angustia. En ti confían los que conocen tu nombre, porque tú, Señor, jamás abandonas a los que te buscan. (Salmos 9:9-10)",
+            hindi: "यहोवा उत्पीड़ितों का आश्रय है, संकट के समय में एक मजबूत किला है। जो तुम्हारा नाम जानते हैं वे तुम पर भरोसा करते हैं, क्योंकि हे यहोवा, तुमने उन लोगों को कभी नहीं छोड़ा जो तुम्हें खोजते हैं। (भजन संहिता 9:9-10)",
             "link": "https://www.bible.com/bible/111/PSA.9.9-10.NIV"
         },
         {
             english: "The Lord will fight for you; you need only to be still. (Exodus 14:14)",
             telugu: "యెహోవా మీకు పోరాడును; మీరు నిశ్చలంగా ఉండుట చాలని. (నిర్గమకాండము 14:14)",
             spanish: "Ustedes quédense quietos, que el Señor presentará batalla por ustedes. (Éxodo 14:14)",
+            hindi: "यहोवा तुम्हारे लिए लड़ाई करेगा; तुम्हें केवल शांत रहना है। (निर्गमन 14:14)",
             "link": "https://www.bible.com/bible/111/EXO.14.14.NIV"
         },
         {
             english: "The Lord will guide you always; he will satisfy your needs in a sun-scorched land and will strengthen your frame. You will be like a well-watered garden, like a spring whose waters never fail. (Isaiah 58:11)",
             telugu: "యెహోవా నీకు ఎల్లప్పుడు మార్గనిర్దేశనం చేయును; ఎండిన భూమిలో నీ అవసరాలను తీరుస్తాడు, నీ బలాన్ని పునరుద్ధరించును. నీవు నీటితో నిండిన తోటలా, నీరు ఎప్పుడూ ఆగనివలె ఉంటావు. (యెషయా 58:11)",
             spanish: "El Señor te guiará siempre; te saciará en tierras resecas y fortalecerá tus huesos. Serás como un jardín bien regado, como un manantial cuyas aguas no se agotan. (Isaías 58:11)",
+            hindi: "यहोवा तुम्हें सदा मार्गदर्शन करेगा; वह सूखी भूमि में तुम्हारी आवश्यकताओं को पूरा करेगा और तुम्हारे शरीर को मजबूत करेगा। तुम एक अच्छी तरह से पानी से भरे बगीचे की तरह हो जाओगे, जैसे एक स्रोत जिसकी जलधारा कभी समाप्त नहीं होती। (यशायाह 58:11)",
             "link": "https://www.bible.com/bible/111/ISA.58.11.NIV"
         }
         ];
@@ -695,6 +763,7 @@
             document.getElementById('englishVerse').innerHTML = formatVerseText(verse.english);
             document.getElementById('spanishVerse').innerHTML = formatVerseText(verse.spanish);
             document.getElementById('teluguVerse').innerHTML = formatVerseText(verse.telugu);
+            document.getElementById('hindiVerse').innerHTML = formatVerseText(verse.hindi);
 
             applyThemeBackground(document.body.dataset.theme);
         }
@@ -721,6 +790,7 @@
 
         initToggle('togglespanish', 'promiseVerseShowSpanish', 'spanishVerse');
         initToggle('toggletelugu', 'promiseVerseShowTelugu', 'teluguVerse');
+        initToggle('togglehindi', 'promiseVerseShowHindi', 'hindiVerse');
 
         const themeSelect = document.getElementById('themeSelect');
         const storedTheme = localStorage.getItem('promiseVerseTheme');

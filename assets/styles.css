@@ -1482,6 +1482,7 @@ body.page-immersive {
   .home-main {
     align-items: flex-start;
     padding-top: 6rem;
+    gap: 1.6rem;
   }
 
   .home-hero {
@@ -1519,18 +1520,32 @@ body.page-immersive {
     left: auto;
     bottom: auto;
     transform: none;
-    width: fit-content;
-    max-width: 100%;
+    width: min(92vw, 28rem);
+    max-width: 92vw;
     flex-wrap: wrap;
     justify-content: center;
     overflow: visible;
-    margin-top: 2.2rem;
-    border-radius: 20px;
+    margin-top: clamp(1rem, 4vh, 1.6rem);
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    gap: 0.5rem 0.75rem;
+    align-self: center;
   }
 
   .activity-item {
     flex-wrap: wrap;
     white-space: normal;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .activity-date {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .activity-arrow {
+    display: none;
   }
 }
 
