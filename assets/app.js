@@ -317,3 +317,55 @@ if (activityDates.length) {
     node.textContent = label;
   });
 }
+
+const formspreeForms = document.querySelectorAll('form[data-formspree]');
+
+formspreeForms.forEach((form) => {
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const action = form.getAttribute('action');
+    if (!action) {
+      return;
+    }
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.dataset.originalText = submitButton.textContent;
+      submitButton.textContent = 'Sending...';
+    }
+
+    try {
+      const response = await fetch(action, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: new FormData(form),
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed.');
+      }
+
+      form.reset();
+      const confirmationSelector = form.dataset.confirmation;
+      if (confirmationSelector) {
+        const confirmation = document.querySelector(confirmationSelector);
+        if (confirmation) {
+          confirmation.classList.add('is-visible');
+        }
+        if (confirmationSelector.startsWith('#')) {
+          window.location.hash = confirmationSelector;
+        }
+      }
+    } catch (error) {
+      form.submit();
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = submitButton.dataset.originalText || 'Submit';
+        delete submitButton.dataset.originalText;
+      }
+    }
+  });
+});

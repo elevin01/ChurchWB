@@ -138,7 +138,14 @@
               <p class="eyebrow">To learn more about these opportunities</p>
               <!-- <h3>We will follow up with care.</h3>
               <p>Share what fits your life. We respond within 48 hours.</p> -->
-              <form class="conversation-form" action="https://formspree.io/f/xpqzrgao" method="POST">
+              <form
+                class="conversation-form"
+                action="https://formspree.io/f/xpqzrgao"
+                method="POST"
+                data-formspree
+                data-confirmation="#interest-submitted"
+              >
+                <input type="hidden" name="_redirect" value="/get-involved/#interest-submitted" />
                 <div class="form-grid">
                   <label>
                     Name
@@ -169,6 +176,10 @@
                 </label>
                 <button class="btn primary" type="submit">Send interest</button>
               </form>
+              <div class="submission-confirmation" id="interest-submitted">
+                <p><strong>Thanks for reaching out.</strong> Your interest has been received.</p>
+                <p>We will follow up with care soon.</p>
+              </div>
             </div>
           </div>
         </div>

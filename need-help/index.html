@@ -115,6 +115,10 @@
               request form.
             </p>
             <a class="btn secondary" href="#prayer-form">Prayer request form →</a>
+            <div class="submission-confirmation" id="prayer-submitted">
+              <p><strong>Request received.</strong> Thank you for trusting us with this.</p>
+              <p>We will pray over it with care.</p>
+            </div>
           </div>
           <div class="safe-card reveal" data-reveal>
             <h2>Partner organizations</h2>
@@ -122,9 +126,8 @@
               We work alongside trusted partners in the Bronx for housing assistance, legal help, and
               family services.
             </p>
-            <p>Partner Organization One</p>
-            <p>Partner Organization Two</p>
-            <p>Partner Organization Three</p>
+            <p>Partner list coming soon.</p>
+            <p>Community referrals available by request.</p>
           </div>
         </div>
       </section>
@@ -138,7 +141,14 @@
           <a class="modal__close" href="#close" aria-label="Close prayer request form">✕</a>
         </div>
         <p>We read every request with care and will follow up if you want us to.</p>
-        <form class="conversation-form" action="https://formspree.io/f/xpqzrgao" method="POST">
+        <form
+          class="conversation-form"
+          action="https://formspree.io/f/xpqzrgao"
+          method="POST"
+          data-formspree
+          data-confirmation="#prayer-submitted"
+        >
+          <input type="hidden" name="_redirect" value="/need-help/#prayer-submitted" />
           <div class="form-grid">
             <label>
               Name
