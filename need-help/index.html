@@ -114,7 +114,7 @@
               If you want someone to pray with you, you can reach out directly or use our simple prayer
               request form.
             </p>
-            <a class="btn secondary" href="#">Prayer request form (embed link)</a>
+            <a class="btn secondary" href="#prayer-form">Prayer request form →</a>
           </div>
           <div class="safe-card reveal" data-reveal>
             <h2>Partner organizations</h2>
@@ -129,6 +129,47 @@
         </div>
       </section>
     </main>
+
+    <div class="modal" id="prayer-form" aria-hidden="true">
+      <a class="modal__overlay" href="#close" aria-label="Close prayer request form"></a>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="prayer-form-title">
+        <div class="modal__header">
+          <h3 id="prayer-form-title">Share a prayer request</h3>
+          <a class="modal__close" href="#close" aria-label="Close prayer request form">✕</a>
+        </div>
+        <p>We read every request with care and will follow up if you want us to.</p>
+        <form class="conversation-form" action="https://formspree.io/f/xpqzrgao" method="POST">
+          <div class="form-grid">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              Phone
+              <input type="tel" name="phone" placeholder="(919) 907 0777" />
+            </label>
+            <label>
+              I would like
+              <select name="interest">
+                <option value="">Select one</option>
+                <option>Prayer only</option>
+                <option>Prayer + follow-up call</option>
+                <option>Prayer + visit</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            Prayer request
+            <textarea name="prayer" placeholder="Share what you'd like us to pray for."></textarea>
+          </label>
+          <button class="btn primary" type="submit">Send request</button>
+        </form>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <blockquote class="footer-verse" data-verse>
