@@ -1510,7 +1510,7 @@ body.page-immersive {
 
 .home-church {
   font-family: var(--font-heading);
-  font-size: clamp(1rem, 2.6vw + 0.6rem, 1.8rem);
+  font-size: clamp(1.5rem, 2.6vw + 0.6rem, 0.8rem);
   text-transform: uppercase;
   letter-spacing: 0.16em;
   margin-bottom: 1.2rem;
@@ -1705,7 +1705,7 @@ body.page-immersive {
   }
 
   .home-mission {
-    font-size: clamp(0.9rem, 1.1vw + 0.4rem, 1.05rem);
+    font-size: clamp(1rem, 1.3vw + 0.45rem, 1.2rem);
   }
 
   .activity-strip {
