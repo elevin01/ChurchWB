@@ -129,6 +129,11 @@ main {
   display: block;
 }
 
+.logo-line {
+  display: block;
+  line-height: 1.05;
+}
+
 .logo-stack {
   display: flex;
   flex-direction: column;
@@ -1672,12 +1677,20 @@ body.page-immersive {
   }
 
   .home-church {
-    font-size: clamp(1.4rem, 4vw + 0.8rem, 2.2rem);
+    font-size: clamp(1.1rem, 3.4vw + 0.6rem, 1.9rem);
     letter-spacing: 0.12em;
   }
 
   .home-identity {
     letter-spacing: 0.2em;
+    font-size: 0.75rem;
+  }
+
+  .logo {
+    font-size: 1.55rem;
+  }
+
+  .logo-tagline {
     font-size: 0.75rem;
   }
 
@@ -1831,6 +1844,29 @@ body.page-immersive {
 
   .pathway-stop::before {
     left: -1.6rem;
+  }
+}
+
+@media (max-width: 720px) and (max-height: 700px) {
+  .header-inner {
+    padding: 0.55rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .logo-stack {
+    gap: 0.15rem;
+  }
+
+  .logo-tagline {
+    font-size: 0.75rem;
+  }
+
+  .nav-toggle {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85rem;
   }
 }
 
