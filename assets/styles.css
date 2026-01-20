@@ -132,6 +132,7 @@ main {
 .logo-line {
   display: block;
   line-height: 1.05;
+  white-space: nowrap;
 }
 
 .logo-stack {
@@ -1655,6 +1656,9 @@ body.page-immersive {
 }
 
 @media (max-width: 720px) {
+  .header-inner {
+    padding: 0.75rem 1rem;
+  }
   .reveal {
     opacity: 1;
     transform: none;
@@ -1687,7 +1691,7 @@ body.page-immersive {
   }
 
   .logo {
-    font-size: 1.55rem;
+    font-size: clamp(1.2rem, 3.6vw + 0.5rem, 1.55rem);
   }
 
   .logo-tagline {
@@ -1853,7 +1857,7 @@ body.page-immersive {
   }
 
   .logo {
-    font-size: 1.6rem;
+    font-size: clamp(1.15rem, 3.4vw + 0.4rem, 1.45rem);
   }
 
   .logo-stack {
