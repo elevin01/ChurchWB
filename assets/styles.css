@@ -1237,9 +1237,56 @@ body.page-immersive {
   margin-bottom: 0.5rem;
 }
 
+.news-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 1.6rem;
+}
+
+.news-block {
+  padding-top: 0;
+}
+
+.news-block + .news-block {
+  border-left: 1px solid rgba(47, 42, 38, 0.2);
+  padding-left: 1.6rem;
+}
+
+.news-subtitle {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  margin: 0 0 0.8rem;
+  color: rgba(47, 42, 38, 0.7);
+}
+
 .news-dek {
   font-size: 1.05rem;
   margin-bottom: 1.2rem;
+}
+
+.news-subhead {
+  display: block;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  margin-bottom: 0.4rem;
+  color: rgba(47, 42, 38, 0.7);
+}
+
+.news-table {
+  margin-top: 2rem;
+  padding: 1.6rem;
+  border: 1px solid rgba(47, 42, 38, 0.2);
+  background: rgba(252, 249, 243, 0.95);
+  box-shadow: 0 12px 26px rgba(47, 42, 38, 0.12);
+}
+
+.news-subtitle--table {
+  font-size: 0.85rem;
+  letter-spacing: 0.24em;
 }
 
 .news-links {
@@ -1533,10 +1580,27 @@ body.page-immersive {
 
 .home-church {
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 2.6vw + 0.6rem, 0.8rem);
+  font-size: clamp(1.7rem, 2.6vw + 0.6rem, 2.8rem);
   text-transform: uppercase;
   letter-spacing: 0.16em;
   margin-bottom: 1.2rem;
+}
+
+.home-verse {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-family: var(--font-serif);
+  line-height: 1.35;
+}
+
+.home-screen .home-hero {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+}
+
+.home-screen .home-left {
+  max-width: min(720px, 90vw);
 }
 
 .home-identity {

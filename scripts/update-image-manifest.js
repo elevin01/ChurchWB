@@ -11,6 +11,7 @@ const files = fs
   .readdirSync(imagesDir)
   .filter((file) => validExtensions.has(path.extname(file).toLowerCase()))
   .filter((file) => !excludedNames.has(file.toLowerCase()))
+  .filter((file) => !file.toLowerCase().startsWith('pastor'))
   .sort()
   .map((file) => `/images/${file}`);
 
