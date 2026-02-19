@@ -1,5 +1,6 @@
 const navToggle = document.querySelector('.nav-toggle');
 const siteNav = document.querySelector('.site-nav');
+document.documentElement.classList.add('js');
 
 if (navToggle && siteNav) {
   navToggle.addEventListener('click', () => {
@@ -214,7 +215,7 @@ if (rotatingBg) {
 const revealItems = document.querySelectorAll('[data-reveal]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (reduceMotion) {
+if (reduceMotion || !('IntersectionObserver' in window)) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 } else if (revealItems.length) {
   const revealObserver = new IntersectionObserver(
