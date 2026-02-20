@@ -6,6 +6,9 @@ if (navToggle && siteNav) {
   navToggle.addEventListener('click', () => {
     const isOpen = siteNav.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (isOpen) {
+      document.body.classList.remove('header-hidden-on-scroll');
+    }
   });
 
   siteNav.querySelectorAll('a').forEach((link) => {
@@ -15,6 +18,68 @@ if (navToggle && siteNav) {
     });
   });
 }
+
+let headerScrollTicking = false;
+let lastHeaderScrollY = window.scrollY;
+let headerHideTimer;
+
+const showHeader = () => {
+  document.body.classList.remove('header-hidden-on-scroll');
+};
+
+const hideHeader = () => {
+  document.body.classList.add('header-hidden-on-scroll');
+};
+
+const scheduleHeaderHide = () => {
+  clearTimeout(headerHideTimer);
+  const navOpen = siteNav && siteNav.classList.contains('open');
+  if (window.scrollY <= 64 || navOpen) {
+    return;
+  }
+  headerHideTimer = setTimeout(() => {
+    const menuIsOpen = siteNav && siteNav.classList.contains('open');
+    if (window.scrollY > 64 && !menuIsOpen) {
+      hideHeader();
+    }
+  }, 1400);
+};
+
+const setHeaderVisibilityOnScroll = () => {
+  const currentY = window.scrollY;
+  const delta = currentY - lastHeaderScrollY;
+  const navOpen = siteNav && siteNav.classList.contains('open');
+
+  if (currentY <= 32 || navOpen) {
+    clearTimeout(headerHideTimer);
+    showHeader();
+  } else if (delta < -2) {
+    showHeader();
+    scheduleHeaderHide();
+  } else if (delta > 2) {
+    clearTimeout(headerHideTimer);
+    hideHeader();
+  }
+
+  lastHeaderScrollY = currentY;
+};
+
+window.addEventListener(
+  'scroll',
+  () => {
+    if (headerScrollTicking) {
+      return;
+    }
+    headerScrollTicking = true;
+    requestAnimationFrame(() => {
+      setHeaderVisibilityOnScroll();
+      headerScrollTicking = false;
+    });
+  },
+  { passive: true }
+);
+
+setHeaderVisibilityOnScroll();
 
 const isHomeScreen = document.body.classList.contains('home-screen');
 
