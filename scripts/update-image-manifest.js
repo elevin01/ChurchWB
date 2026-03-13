@@ -5,7 +5,7 @@ const rootDir = path.resolve(__dirname, '..');
 const imagesDir = path.join(rootDir, 'images');
 const manifestPath = path.join(rootDir, 'assets', 'image-manifest.json');
 const validExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp', '.svg']);
-const excludedNames = new Set(['geomonb&w.jpg']);
+const excludedNames = new Set(['geomonb&w.jpg', 'rosettamckinney,.jpg']);
 
 const files = fs
   .readdirSync(imagesDir)

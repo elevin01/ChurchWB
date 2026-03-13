@@ -435,3 +435,77 @@ formspreeForms.forEach((form) => {
     }
   });
 });
+
+const comingSoonLinks = document.querySelectorAll('[data-coming-soon-message]');
+
+if (comingSoonLinks.length) {
+  let comingSoonModal = null;
+  let modalMessage = null;
+  let lastFocusedLink = null;
+
+  const closeComingSoonModal = () => {
+    if (!comingSoonModal) {
+      return;
+    }
+    comingSoonModal.classList.remove('is-visible');
+    comingSoonModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (lastFocusedLink) {
+      lastFocusedLink.focus();
+    }
+  };
+
+  const openComingSoonModal = (message, trigger) => {
+    if (!comingSoonModal) {
+      comingSoonModal = document.createElement('div');
+      comingSoonModal.className = 'modal modal--inline-message';
+      comingSoonModal.setAttribute('aria-hidden', 'true');
+      comingSoonModal.innerHTML = `
+        <div class="modal__overlay" data-close-coming-soon="true"></div>
+        <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="coming-soon-title">
+          <div class="modal__header">
+            <h3 id="coming-soon-title">Stay Tuned</h3>
+            <button class="modal__close" type="button" aria-label="Close message" data-close-coming-soon="true">x</button>
+          </div>
+          <p class="modal__message"></p>
+          <div class="modal__actions">
+            <button class="modal__button" type="button" data-close-coming-soon="true">Close</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(comingSoonModal);
+      modalMessage = comingSoonModal.querySelector('.modal__message');
+      comingSoonModal.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target instanceof HTMLElement && target.dataset.closeComingSoon === 'true') {
+          closeComingSoonModal();
+        }
+      });
+    }
+
+    lastFocusedLink = trigger;
+    if (modalMessage) {
+      modalMessage.textContent = message;
+    }
+    comingSoonModal.classList.add('is-visible');
+    comingSoonModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  };
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && comingSoonModal && comingSoonModal.classList.contains('is-visible')) {
+      closeComingSoonModal();
+    }
+  });
+
+  comingSoonLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const message = link.dataset.comingSoonMessage;
+      if (!message) {
+        return;
+      }
+      openComingSoonModal(message, link);
+    });
+  });
+}
