@@ -81,6 +81,27 @@ window.addEventListener(
 
 setHeaderVisibilityOnScroll();
 
+const scrollCue = document.querySelector('[data-scroll-cue]');
+
+if (scrollCue) {
+  let scrollCueDismissed = false;
+
+  const updateScrollCue = () => {
+    if (scrollCueDismissed || window.scrollY > 48) {
+      scrollCue.classList.add('is-hidden');
+    }
+  };
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      scrollCueDismissed = true;
+      requestAnimationFrame(updateScrollCue);
+    },
+    { passive: true }
+  );
+}
+
 const isHomeScreen = document.body.classList.contains('home-screen');
 
 if (isHomeScreen) {
